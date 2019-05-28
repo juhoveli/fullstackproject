@@ -31,4 +31,6 @@ Styles in React Native can be applied the same way as normal React projects, wit
 So I also tested that and changed the colors of the app, for starters.
 
 Next I did some very basic counter app that had to buttons and useState hook which
-set the text element according to counter value.
+set the text element according to counter value. Also played a little with ScrollView
+and Image components. After this brief introduction I felt familiar with React Native
+and could start developing the actual application.

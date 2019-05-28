@@ -1,21 +1,33 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
+import {StyleSheet, Image, Text, TextInput, TouchableHighlight, TouchableOpacity, View, ScrollView} from 'react-native';
 
 const App = () => {
-  const [count, setCount] = useState(0)
+  const [notes, setNotes] = useState([1,2,3,4,5,6,7,8,9])
+
+
+  const handleNoteChange = (event) => {
+    setNotes(notes.concat(event.target))
+  }
+
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>{count}</Text>
-        <TouchableHighlight onPress={() => setCount(count + 1)}>
+        <TouchableOpacity onPress={() => setNotes(notes.map(n=> n*2))}>
           <View style={styles.button}>
-            <Text style={styles.buttonText}>Pos</Text>
+            <Text style={styles.buttonText}>Exp</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableHighlight onPress={() => setNotes(notes.map(n => n/2))}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>Log</Text>
           </View>
         </TouchableHighlight>
-        <TouchableHighlight onPress={() => setCount(count - 1)}>
-          <View style={styles.button}>
-            <Text style={styles.buttonText}>Neg</Text>
-          </View>
-        </TouchableHighlight>
+        <ScrollView>
+          {notes.map(n => <Text 
+                          key={n} 
+                          style={styles.welcome}>
+                          {n}
+                          </Text>)}
+        </ScrollView>
       </View>
       
     );

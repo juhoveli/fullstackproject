@@ -41,3 +41,9 @@ for the menu and added text buttons that do various things when pressed.
 Native alert messages and vibration are good examples. Next I really should
 generate some random data and start filtering it in the views.
 
+### Manipulating views
+
+For a couple of hours I tried to make it work to switch views. So basically
+just saving the page name to state and then manipulating view based on that.
+Quite an easy task, although I now have a navigation menu that keeps moving..
+need to make it stick to the bottom of the screen.

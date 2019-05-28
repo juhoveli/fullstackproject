@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Text, 
   TouchableOpacity, 
@@ -10,14 +10,15 @@ import {
 const Menu = ({styles}) => {
   return (
     <View>
+      <Text style={styles.textTitle}>iCOMMAND</Text>
       <TouchableOpacity onPress={() => Alert.alert('JIHA', 'JOHO')}>
-        <Text style={styles.textClickable}>ALERT</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => (console.log('testi'))}>
-        <Text style={styles.textClickable}>MENU ITEM 2</Text>
+        <Text style={styles.textClickable}>> login</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => Vibration.vibrate()}>
-        <Text style={styles.textClickable}>VIBRATE</Text>
+        <Text style={styles.textClickable}>> register</Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Text style={styles.textClickable}>> info</Text>
       </TouchableOpacity>
     </View>
   )

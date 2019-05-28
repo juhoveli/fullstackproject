@@ -40,6 +40,10 @@ const App = () => {
 
 const styles = StyleSheet.create({
   navigation: {
+    borderWidth: 1,
+    borderColor: 'greenyellow',
+    position: 'absolute',
+    bottom:0,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -64,7 +68,7 @@ const styles = StyleSheet.create({
     fontSize: 36,
     textAlign: 'left',
     color: 'greenyellow',
-    margin: 20
+    margin: 10
   }
 });
 

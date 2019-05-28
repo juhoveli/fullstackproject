@@ -1,5 +1,4 @@
-#### This document contains most of the commands including errors during development
-process.
+#### This document contains most of the commands including errors during development process.
 
 ### 28th May 2019
 #### Starting with React Native

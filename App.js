@@ -40,7 +40,7 @@ const App = () => {
         <View style={styles.navigationBottom}>
           <MenuButton text="HOME" onPress={toPage('menu')}/>
           <MenuButton text="INFO" onPress={toPage('info')}/>
-          <MenuButton text="USERS" onPress={toPage('users')}/>
+          <MenuButton text="USERS🐒" onPress={toPage('users')}/>
         </View>
       </View>
     );

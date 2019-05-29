@@ -47,3 +47,23 @@ For a couple of hours I tried to make it work to switch views. So basically
 just saving the page name to state and then manipulating view based on that.
 Quite an easy task, although I now have a navigation menu that keeps moving..
 need to make it stick to the bottom of the screen.
+
+# 29th May 2019
+
+## A little bit more
+
+Today I managed to make the navigation bar stick to the bottom well enough.
+Still have some work to do with styling but it's time to get the app logic
+working. So my first idea was to use CIA world factbook API and get good
+intelligence data straight to the app. Still have some work to do with
+that, because it's quite a large json-file and fetching it takes time.
+For now I only have Chuck Norris jokes that are rendered on screen.
+
+Also had some problems when I tried to make own components with Views..
+I couldn't use them inside each other for some reason, haven't figured
+out yet what's the cause.
+
+But still I have spent more than enough hours today just to get things
+working.. React seemed easy but the transition to native has not been
+that easy. Oh, but I did manage to get dotenv working. Not really much
+use for now, but later with APIs and DB it's going to be very useful.

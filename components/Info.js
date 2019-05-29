@@ -2,44 +2,33 @@ import React, {useState, useEffect} from 'react';
 import MenuItem from './MenuItem'
 import { KEY } from 'react-native-dotenv'
 import factService from '../services/factService'
-import {
-  Text, 
-  TouchableOpacity, 
-  View, 
-  Alert,
-  Vibration
-} from 'react-native';
+import { View, ScrollView } from 'react-native';
 
 const Info = () => {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    factService.getAll().then(facts =>
-      setData(facts.value.joke)
+    factService.getAll().then(all =>
+      setData(all.countries)
     )
   }, [])
 
 
-  if (data.length < 1 || data === undefined) {
+  if (data.length < 1) {
     return (
       <View >
-      <MenuItem text="fetching..." />
-           <MenuItem text="info" />
-           <MenuItem text={`${KEY}`} />
-          </View>
+        <MenuItem text="fetching..." />
+      </View>
         
     )
   }
 
-
-
-   
   return (
-    <View >
-<MenuItem text={data} />
+    <ScrollView >
+     {Object.values(data).map(c => <MenuItem key={c.data.name} text={c.data.name} />)}
      <MenuItem text="info" />
      <MenuItem text={`${KEY}`} />
-    </View>
+    </ScrollView>
   )
 }
 

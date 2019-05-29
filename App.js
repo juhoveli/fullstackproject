@@ -29,18 +29,11 @@ const App = () => {
 
     return (
       <View style={styles.container}>
-        <View style={styles.navigationTop}>
-          <MenuButton text="ME" />
-          <MenuButton text="HOME" />
-          <MenuButton text="ELSE" />
-        </View>
-
         {pageContent()}
-
         <View style={styles.navigationBottom}>
           <MenuButton text="HOME" onPress={toPage('menu')}/>
           <MenuButton text="INFO" onPress={toPage('info')}/>
-          <MenuButton text="USERS🐒" onPress={toPage('users')}/>
+          <MenuButton text="USERS" onPress={toPage('users')}/>
         </View>
       </View>
     );
@@ -60,7 +53,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 2,
     borderColor: 'greenyellow',
     position: 'absolute',
-    bottom:0,
+    bottom: 0, left: 0, right: 0,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -79,17 +72,6 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     color: 'greenyellow',
     margin: 50
-  },
-  navigationTop: {
-    borderBottomWidth: 2,
-    borderColor: 'greenyellow',
-    position: 'absolute',
-    top:0,
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#000000',
-    flexDirection: 'row',
   }
 });
 

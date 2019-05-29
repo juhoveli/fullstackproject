@@ -67,3 +67,11 @@ But still I have spent more than enough hours today just to get things
 working.. React seemed easy but the transition to native has not been
 that easy. Oh, but I did manage to get dotenv working. Not really much
 use for now, but later with APIs and DB it's going to be very useful.
+
+## Getting closer to actual functionality
+
+Finally, after several hours of banging my head against the wall I figured
+out what was wrong - I misinterpreted the json file which had all the 
+country information. Now the app actually fetches country names from the
+website json file. Next up would be to get individual country data when
+pressing on country name. Let's hope that'll be a little easier.

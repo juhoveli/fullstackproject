@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import MenuItem from './MenuItem'
-import { KEY } from 'react-native-dotenv'
 import {
   Text, 
   TouchableOpacity, 
@@ -9,17 +8,15 @@ import {
   Vibration
 } from 'react-native';
 
-const Info = () => {
+const Users = () => {
   return (
-    <View >
-     <MenuItem text="info" />
-     <MenuItem text={`${KEY}`} />
+    <View>
+      <MenuItem text="users" />
     </View>
   )
 }
 
-export default Info
-
+export default Users
 
 
 

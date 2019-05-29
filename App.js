@@ -7,6 +7,8 @@ import {
 } from 'react-native';
 import Menu from './components/Menu'
 import Info from './components/Info'
+import Users from './components/Users'
+import MenuButton from './components/MenuButton'
 
 const App = () => {
   const [page, setPage] = useState('menu')
@@ -16,31 +18,46 @@ const App = () => {
     setPage(page)
   }
 
-  const content = () => {
+  const pageContent = () => {
     if (page === 'menu') {
       return <Menu styles={styles} />
     } else if (page === 'info') {
-      return <Info styles={styles} />
+      return <Info />
+    } else if (page === 'users') {
+      return <Users />
     }}
 
     return (
       <View style={styles.container}>
-        {content()}
-        <View style={styles.navigation}>
-          <TouchableOpacity  style={styles.textClickable} onPress={toPage('menu')}>
-            <Text style={styles.textClickable}>MENU</Text>
-          </TouchableOpacity >
-          <TouchableOpacity  style={styles.textClickable} onPress={toPage('info')}>
-            <Text style={styles.textClickable}>INFO</Text>
-          </TouchableOpacity >
+        <View style={styles.navigationTop}>
+          <MenuButton text="ME" />
+          <MenuButton text="HOME" />
+          <MenuButton text="ELSE" />
+        </View>
+
+        {pageContent()}
+
+        <View style={styles.navigationBottom}>
+          <MenuButton text="HOME" onPress={toPage('menu')}/>
+          <MenuButton text="INFO" onPress={toPage('info')}/>
+          <MenuButton text="USERS" onPress={toPage('users')}/>
         </View>
       </View>
     );
   }
 
 const styles = StyleSheet.create({
-  navigation: {
-    borderWidth: 1,
+  text: {
+    fontFamily: 'Glass_TTY_VT220',
+    fontSize: 36,
+    textAlign: 'left',
+    color: 'greenyellow',
+    margin: 5,
+    marginBottom: 5,
+    paddingBottom: 0,
+  },
+  navigationBottom: {
+    borderTopWidth: 2,
     borderColor: 'greenyellow',
     position: 'absolute',
     bottom:0,
@@ -63,12 +80,16 @@ const styles = StyleSheet.create({
     color: 'greenyellow',
     margin: 50
   },
-  textClickable: {
-    fontFamily: 'Glass_TTY_VT220',
-    fontSize: 36,
-    textAlign: 'left',
-    color: 'greenyellow',
-    margin: 10
+  navigationTop: {
+    borderBottomWidth: 2,
+    borderColor: 'greenyellow',
+    position: 'absolute',
+    top:0,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#000000',
+    flexDirection: 'row',
   }
 });
 

@@ -34,7 +34,6 @@ const Info = ({match}) => {
         </Link> 
       </View>
       )}
-      <Route exact path={'/info/country'} component={Country}/>
     </ScrollView>
   )
 }

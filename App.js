@@ -1,6 +1,7 @@
 import InfoScreen from './components/InfoScreen'
 import HomeScreen from './components/HomeScreen'
 import DetailScreen from './components/DetailScreen'
+import LoginScreen from './components/LoginScreen'
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 
@@ -28,12 +29,13 @@ const navigationOptions = {
 
 const AppNavigator = createStackNavigator(
   {
+    Login: {screen: LoginScreen, navigationOptions: {...navigationOptions, title: 'LOGIN'}},
     Home: {screen: HomeScreen, navigationOptions: {...navigationOptions, title: 'HOME'}},
     Info: {screen: InfoScreen, navigationOptions: {...navigationOptions, title: 'INFO'}},
     Detail: {screen: DetailScreen, navigationOptions: {...navigationOptions, title: 'DETAILS'}},
   },
   {
-    initialRouteName: "Home"
+    initialRouteName: "Login"
   },
 );
 

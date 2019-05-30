@@ -113,3 +113,9 @@ reason.
 Back button not yet working, but I did manage to get props to sub screens,
 so now each country shows details when clicked. This will improve more
 in the future.
+
+## Beginning of authentication
+
+I really didn't do any real authentication logic yet, just sketched the login
+screen to see how it van be customized. Dark keyboard layout was something
+awesome. Next up is some actual authentication.

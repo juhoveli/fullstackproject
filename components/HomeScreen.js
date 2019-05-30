@@ -10,7 +10,6 @@ const HomeScreen = ({navigation}) => {
     return (
       <View style={styles.container}>
       <StatusBar hidden />
-        <Text>Home Screen</Text>
         <MenuButton
           text="> SEE INFO"
           onPress={() => navigation.navigate('Info')}

@@ -109,3 +109,7 @@ screens. This is not something I want, so I have to do something for that.
 Still moving between to blank screens, trying to fix styles for custom back
 button. When not using default, the back function is not working for some
 reason.
+
+Back button not yet working, but I did manage to get props to sub screens,
+so now each country shows details when clicked. This will improve more
+in the future.

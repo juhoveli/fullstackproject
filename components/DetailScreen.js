@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import MenuItem from './MenuItem'
 
 const DetailScreen = ({navigation}) => {
-
     const country = navigation.getParam('country', 'finland')
 
     return (
@@ -17,9 +16,6 @@ const DetailScreen = ({navigation}) => {
     </ScrollView>
     )
   }
-
-
-
 
   const styles = StyleSheet.create({
     detail: {

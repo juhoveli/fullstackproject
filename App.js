@@ -14,7 +14,16 @@ const navigationOptions = {
     color: 'greenyellow',
     fontFamily: 'Glass_TTY_VT220',
     fontSize: 32
-  }
+  },
+  headerBackTitle: '< BACK',
+  headerTintColor: 'black',
+  headerBackTitleStyle: {
+    color: 'greenyellow',
+    fontFamily: 'Glass_TTY_VT220',
+    fontSize: 32,
+    backgroundColor: 'black'
+  },
+
 };
 
 const AppNavigator = createStackNavigator(

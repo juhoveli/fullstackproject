@@ -1,41 +1,23 @@
 import React, {useState, useEffect} from 'react';
-import MenuItem from './MenuItem'
-import { KEY } from 'react-native-dotenv'
-import factService from '../services/factService'
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import Country from './Country'
-import Menu from './Menu'
+import {
+  StyleSheet, StatusBar, ScrollView,
+  View, Text, Button
+} from 'react-native';
+import MenuButton from './MenuButton'
 
-const Info = ({match}) => {
-  const [data, setData] = useState([])
-
-  useEffect(() => {
-    factService.getAll().then(all =>
-      setData(all.countries)
-    )
-  }, [])
-
-
-  if (data.length < 1) {
+class HomeScreen extends React.Component {
+  render() {
     return (
-      <View >
-        <MenuItem text="fetching..." />
+      <View style={styles.container}>
+      <StatusBar hidden />
+        <Text>Home Screen</Text>
+        <MenuButton
+          text="> SEE INFO"
+          onPress={() => this.props.navigation.navigate('Info')}
+        />
       </View>
-        
-    )
+    );
   }
-
-  return (
-    <ScrollView >
-      {Object.values(data).map(c => 
-      <View  key={c.data.name} >
-        <Link to={'/info/country'}>
-          <Text style={styles.text}>> {c.data.name}</Text>
-        </Link> 
-      </View>
-      )}
-    </ScrollView>
-  )
 }
 
 const styles = StyleSheet.create({
@@ -67,6 +49,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#000000',
   },
+  scroll: {
+    flex: 1,
+    backgroundColor: '#000000',
+  },
   textTitle: {
     fontFamily: 'Glass_TTY_VT220',
     fontSize: 56,
@@ -76,10 +62,4 @@ const styles = StyleSheet.create({
   }
 });
 
-
-export default Info
-
-
-
-
-
+export default HomeScreen

@@ -8,25 +8,10 @@ import Menu from './components/Menu'
 import Info from './components/Info'
 import Users from './components/Users'
 import MenuButton from './components/MenuButton'
-
+import Country from './components/Country'
 
 
 const App = () => {
-  const [page, setPage] = useState('menu')
-
- const  toPage = (page) => (event) => {
-    event.preventDefault()
-    setPage(page)
-  }
-
-  const pageContent = () => {
-    if (page === 'menu') {
-      return <Menu styles={styles} />
-    } else if (page === 'info') {
-      return <Info />
-    } else if (page === 'users') {
-      return <Users />
-    }}
 
     return (
       <Router>
@@ -42,10 +27,10 @@ const App = () => {
                 <Text style={styles.text}>USERS</Text>
             </Link>
         </View>
-
         <Route exact path="/" component={Menu} />
         <Route path="/info" component={Info} />
         <Route path="/users" component={Users} />
+        <Route path={'/country'} component={Country} />
       </View>
     </Router>
    

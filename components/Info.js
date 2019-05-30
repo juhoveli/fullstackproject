@@ -3,8 +3,9 @@ import MenuItem from './MenuItem'
 import { KEY } from 'react-native-dotenv'
 import factService from '../services/factService'
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import { Route, Link } from 'react-router-native';
-import Country from './Country'
+import { Router, Route, Link } from 'react-router-native';
+
+import Menu from './Menu'
 
 const Info = () => {
   const [data, setData] = useState([])
@@ -29,10 +30,9 @@ const Info = () => {
     <ScrollView >
       {Object.values(data).map(c => 
         <Link key={c.data.name} to='/country'>
-          <Text style={styles.text}>{c.data.name}</Text>
+          <Text style={styles.text}>> {c.data.name}</Text>
         </Link> 
       )}
-      <Route path={'/country'} component={Country} />
     </ScrollView>
   )
 }

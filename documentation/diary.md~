@@ -78,8 +78,6 @@ pressing on country name. Let's hope that'll be a little easier.
 
 # 30th May
 
-## React Router Native
-
 In the morning I fixed navigation in the app, now using react-router-native.
 Seems to work quite well, altough there were trouble at first with one-child
 components. Now the bottom navigation menu is using Router as well as country
@@ -88,18 +86,3 @@ country data. How cool is that!
 
 In the meantime I really should figure out a good way to handle stylesheets,
 as I don't want to pass them ass props or have them in every component.
-
-## React Navigation
-
-I did get React Router working well for some reason, and I found that
-there is a library that uses more native UI for navigation, called
-React Navigation. So I basically threw few hours of working with Router
-in the trash and started over with React Navigation. 
-
-It uses default iOS colors, so there is a little more work because every
-element has to be styled to fit my own style. Anyway, Navigation is much
-easier to work with, because it stacks screens and you can automatically
-get a back button when going deeper from home screen. 
-
-Also Navigation has by default transition animations when moving between
-screens. This is not something I want, so I have to do something for that. 

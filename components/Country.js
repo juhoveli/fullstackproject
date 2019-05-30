@@ -6,7 +6,7 @@ import { Router, Route, Link } from 'react-router-native';
 const Country = () => {
   return (
     <View >
-      <MenuItem text="hello" />
+      <MenuItem text="Halleluja" />
     </View>
     
   )

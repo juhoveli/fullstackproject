@@ -1,41 +1,43 @@
 import React, {useState} from 'react';
 import {
-  StyleSheet, 
-  View, Text
+  StyleSheet, StatusBar,
+  View, Text, Button
 } from 'react-native';
-import {NativeRouter as Router, Route, Link} from 'react-router-native';
 import Menu from './components/Menu'
 import Info from './components/Info'
 import Users from './components/Users'
 import MenuButton from './components/MenuButton'
 import Country from './components/Country'
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
 
-const App = () => {
-
+class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Home',
+    headerStyle: {     
+      borderBottomColor: 'greenyellow',
+      borderBottomStyle: 'dashed',
+      backgroundColor: 'black',
+    },
+    headerTitleStyle: {
+      color: 'greenyellow',
+      fontFamily: 'Glass_TTY_VT220',
+      fontSize: 32
+    }
+  };
+  render() {
     return (
-      <Router>
-        <View style={styles.container}>
-          <View style={styles.navigationBottom}>
-            <Link to="/">
-            <Text style={styles.text}>MENU</Text>
-            </Link>
-            <Link to="/info">
-              <Text style={styles.text}>INFO</Text>
-            </Link>
-            <Link to="/users">
-                <Text style={styles.text}>USERS</Text>
-            </Link>
-        </View>
-        <Route exact path="/" component={Menu} />
-        <Route path="/info" component={Info} />
-        <Route path="/users" component={Users} />
-        <Route path={'/country'} component={Country} />
+      <View style={styles.container}>
+      <StatusBar hidden />
+        <Text>Home Screen</Text>
+        <MenuButton
+          text="Go to Details"
+          onPress={() => this.props.navigation.navigate('Details')}
+        />
       </View>
-    </Router>
-   
     );
   }
+}
 
 const styles = StyleSheet.create({
   text: {
@@ -75,4 +77,36 @@ const styles = StyleSheet.create({
   }
 });
 
-export default App
+class InfoScreen extends React.Component {
+  static navigationOptions = {
+    title: 'INFO',
+    headerStyle: {     
+      backgroundColor: 'black'
+    },
+    headerTitleStyle: {
+      color: 'greenyellow',
+      fontFamily: 'Glass_TTY_VT220',
+      fontSize: 32
+    }
+  };
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>Info Screen</Text>
+      </View>
+    );
+  }
+}
+
+const AppNavigator = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Details: InfoScreen
+  },
+  {
+    initialRouteName: "Home"
+  }
+);
+
+
+export default createAppContainer(AppNavigator);

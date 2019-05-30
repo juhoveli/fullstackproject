@@ -7,7 +7,7 @@ import {
   Vibration
 } from 'react-native';
 
-const MenuButton = ({text}) => {
+const MenuButton = ({text, onPress}) => {
 
 const style = {
   fontFamily: 'Glass_TTY_VT220',
@@ -21,7 +21,7 @@ const style = {
 
   return (
     <TouchableOpacity>
-      <Text style={style}>{text}</Text>
+      <Text style={style} onPress={onPress}>{text}</Text>
     </TouchableOpacity>
   )
 }

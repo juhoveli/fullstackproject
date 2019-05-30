@@ -5,20 +5,20 @@ import {
 } from 'react-native';
 import MenuButton from './MenuButton'
 
-class HomeScreen extends React.Component {
-  render() {
+const HomeScreen = ({navigation}) => {
+
     return (
       <View style={styles.container}>
       <StatusBar hidden />
         <Text>Home Screen</Text>
         <MenuButton
           text="> SEE INFO"
-          onPress={() => this.props.navigation.navigate('Info')}
+          onPress={() => navigation.navigate('Info')}
         />
       </View>
     );
   }
-}
+
 
 const styles = StyleSheet.create({
   text: {

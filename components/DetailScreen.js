@@ -1,46 +1,35 @@
 import React, {useState, useEffect} from 'react';
-import MenuItem from './MenuItem'
-import { KEY } from 'react-native-dotenv'
-import factService from '../services/factService'
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import MenuItem from './MenuItem'
 
-const InfoScreen = ({navigation}) => {
-  const [data, setData] = useState([])
+const DetailScreen = ({navigation}) => {
 
-    useEffect(() => {
-      factService.getAll().then(all =>
-        setData(all.countries)
-      )
-    }, [])
-
-  if (data.length < 1) {
-    return (
-      <View style={styles.container}>
-        <MenuItem text="LOADING..." />
-      </View>
-        
-    )
-  }
+    const country = navigation.getParam('country', 'finland')
 
     return (
       <ScrollView style={styles.scroll}>
-      {Object.values(data).map(c => 
-      <View  key={c.data.name} >
-          <MenuItem text={`> ${c.data.name}`} 
-                    style={styles.text} 
-                    onPress={() => 
-                    navigation.navigate('Detail', {
-                      country: c.data
-                    })}
-            />
+      <View  key={country.introduction.background} >
+          <Text 
+            style={styles.detail}>
+            {country.introduction.background}
+          </Text>
       </View>
-      )}
     </ScrollView>
-    );
+    )
   }
 
 
+
+
   const styles = StyleSheet.create({
+    detail: {
+      fontFamily: 'Glass_TTY_VT220',
+      fontSize: 24,
+      textAlign: 'center',
+      color: 'greenyellow',
+      margin: 10,
+      padding: 10
+    },
     text: {
       fontFamily: 'Glass_TTY_VT220',
       fontSize: 36,
@@ -82,4 +71,4 @@ const InfoScreen = ({navigation}) => {
     }
   });
   
-  export default InfoScreen
+  export default DetailScreen

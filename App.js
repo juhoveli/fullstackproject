@@ -1,5 +1,6 @@
 import InfoScreen from './components/InfoScreen'
 import HomeScreen from './components/HomeScreen'
+import DetailScreen from './components/DetailScreen'
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 
@@ -19,7 +20,8 @@ const navigationOptions = {
 const AppNavigator = createStackNavigator(
   {
     Home: {screen: HomeScreen, navigationOptions: {...navigationOptions, title: 'HOME'}},
-    Info: {screen: InfoScreen, navigationOptions: {...navigationOptions, title: 'INFO'}}
+    Info: {screen: InfoScreen, navigationOptions: {...navigationOptions, title: 'INFO'}},
+    Detail: {screen: DetailScreen, navigationOptions: {...navigationOptions, title: 'DETAILS'}},
   },
   {
     initialRouteName: "Home"

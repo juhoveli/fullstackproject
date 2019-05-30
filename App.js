@@ -15,7 +15,7 @@ const navigationOptions = {
     fontFamily: 'Glass_TTY_VT220',
     fontSize: 32
   },
-  headerBackTitle: '< BACK',
+  headerBackTitle: '<',
   headerTintColor: 'black',
   headerBackTitleStyle: {
     color: 'greenyellow',

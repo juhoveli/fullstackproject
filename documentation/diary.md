@@ -75,3 +75,14 @@ out what was wrong - I misinterpreted the json file which had all the
 country information. Now the app actually fetches country names from the
 website json file. Next up would be to get individual country data when
 pressing on country name. Let's hope that'll be a little easier.
+
+# 30th May
+
+In the morning I fixed navigation in the app, now using react-router-native.
+Seems to work quite well, altough there were trouble at first with one-child
+components. Now the bottom navigation menu is using Router as well as country
+list. Country name takes to a placeholder page that will later show individual
+country data. How cool is that!
+
+In the meantime I really should figure out a good way to handle stylesheets,
+as I don't want to pass them ass props or have them in every component.

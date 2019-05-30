@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import {
   StyleSheet, 
-  Text, 
-  View, 
-  TouchableOpacity
+  View, Text
 } from 'react-native';
+import {NativeRouter as Router, Route, Link} from 'react-router-native';
 import Menu from './components/Menu'
 import Info from './components/Info'
 import Users from './components/Users'
 import MenuButton from './components/MenuButton'
+
+
 
 const App = () => {
   const [page, setPage] = useState('menu')
@@ -28,14 +29,26 @@ const App = () => {
     }}
 
     return (
-      <View style={styles.container}>
-        {pageContent()}
-        <View style={styles.navigationBottom}>
-          <MenuButton text="HOME" onPress={toPage('menu')}/>
-          <MenuButton text="INFO" onPress={toPage('info')}/>
-          <MenuButton text="USERS" onPress={toPage('users')}/>
+      <Router>
+        <View style={styles.container}>
+          <View style={styles.navigationBottom}>
+            <Link to="/">
+            <Text style={styles.text}>MENU</Text>
+            </Link>
+            <Link to="/info">
+              <Text style={styles.text}>INFO</Text>
+            </Link>
+            <Link to="/users">
+                <Text style={styles.text}>USERS</Text>
+            </Link>
         </View>
+
+        <Route exact path="/" component={Menu} />
+        <Route path="/info" component={Info} />
+        <Route path="/users" component={Users} />
       </View>
+    </Router>
+   
     );
   }
 
@@ -50,6 +63,8 @@ const styles = StyleSheet.create({
     paddingBottom: 0,
   },
   navigationBottom: {
+    zIndex: 9999,
+    backgroundColor: 'black',
     borderTopWidth: 2,
     borderColor: 'greenyellow',
     position: 'absolute',

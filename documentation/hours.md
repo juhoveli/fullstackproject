@@ -8,3 +8,4 @@
 | 29.5. | 2 | Refactoring components, buiding navigation |
 | 29.5. | 2 | Installing libraries (dotenv, axios, json-server..) |
 | 29.5. | 3 | Fetching data with axios and organizing it in the app|
+| 30.5. | 2 | Fixing styling and adding react-router-native |

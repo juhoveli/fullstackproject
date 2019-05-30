@@ -10,7 +10,7 @@ import {
 const Menu = ({styles}) => {
   return (
     <View>
-      <Text style={styles.textTitle}>iCOMMAND</Text>
+      <Text>iCOMMAND</Text>
       <MenuItem text="> login"/>
       <MenuItem text="> info"/>
       <MenuItem text="> exit"/>

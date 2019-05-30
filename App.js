@@ -12,27 +12,15 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 
 
 class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Home',
-    headerStyle: {     
-      borderBottomColor: 'greenyellow',
-      borderBottomStyle: 'dashed',
-      backgroundColor: 'black',
-    },
-    headerTitleStyle: {
-      color: 'greenyellow',
-      fontFamily: 'Glass_TTY_VT220',
-      fontSize: 32
-    }
-  };
+
   render() {
     return (
       <View style={styles.container}>
       <StatusBar hidden />
         <Text>Home Screen</Text>
         <MenuButton
-          text="Go to Details"
-          onPress={() => this.props.navigation.navigate('Details')}
+          text="> SEE INFO"
+          onPress={() => this.props.navigation.navigate('Info')}
         />
       </View>
     );
@@ -78,34 +66,40 @@ const styles = StyleSheet.create({
 });
 
 class InfoScreen extends React.Component {
-  static navigationOptions = {
-    title: 'INFO',
-    headerStyle: {     
-      backgroundColor: 'black'
-    },
-    headerTitleStyle: {
-      color: 'greenyellow',
-      fontFamily: 'Glass_TTY_VT220',
-      fontSize: 32
-    }
-  };
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Info Screen</Text>
+        <Text style={styles.text}>INFO HERE</Text>
+        <Button
+          title="Go back"
+          onPress={() => this.props.navigation.goBack()}
+        />
       </View>
     );
   }
 }
 
+const navigationOptions = {
+  title: 'Home',
+  headerStyle: {     
+    borderBottomColor: 'greenyellow',
+    backgroundColor: 'black',
+  },
+  headerTitleStyle: {
+    color: 'greenyellow',
+    fontFamily: 'Glass_TTY_VT220',
+    fontSize: 32
+  }
+};
+
 const AppNavigator = createStackNavigator(
   {
-    Home: HomeScreen,
-    Details: InfoScreen
+    Home: {screen: HomeScreen, navigationOptions},
+    Info: {screen: InfoScreen, navigationOptions: {...navigationOptions, title: 'Info'}}
   },
   {
     initialRouteName: "Home"
-  }
+  },
 );
 
 

@@ -103,3 +103,9 @@ get a back button when going deeper from home screen.
 
 Also Navigation has by default transition animations when moving between
 screens. This is not something I want, so I have to do something for that. 
+
+### More navigation
+
+Still moving between to blank screens, trying to fix styles for custom back
+button. When not using default, the back function is not working for some
+reason.

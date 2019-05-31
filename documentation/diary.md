@@ -133,3 +133,12 @@ and possibly backend with Firebase. Firebase and React Native Firebase had
 good documentation, it took about two hours to register, set up and install
 everything so I was good to go. I didn't do any actual app logic yet, just
 setting up the Firebase so I can use it.
+
+Next I did the actual authentication, which was pretty straight forward.
+Using Firebase the authentication becomes easy and I don't have to worry
+about anything else but where to call the login / auth / logout functions.
+
+Authentication works, although I still have to make register screen styling
+in line with the rest of the app, as I used a template. Also, there is still
+a back button in every screen which makes you able to navigate back when
+logged out.. Not good, but this can be avoided with different screen stacks.

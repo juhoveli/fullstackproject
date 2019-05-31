@@ -1,14 +1,17 @@
-
-import React, {useState} from 'react'
+import firebase from 'react-native-firebase'
+import React, {useState, useEffect} from 'react'
+import { StackActions, NavigationActions } from 'react-navigation';
 import { StyleSheet, Text, TextInput, View, Button } from 'react-native'
-const RegisterScreen = () => {
+const RegisterScreen = ({navigation}) => {
   
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
 handleSignUp = () => {
-  // TODO: Firebase stuff...
-  console.log('handleSignUp')
+  firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => navigation.navigate('Home'))
 }
     return (
       <View style={styles.container}>
@@ -31,7 +34,7 @@ handleSignUp = () => {
         <Button title="Sign Up" onPress={this.handleSignUp} />
         <Button
           title="Already have an account? Login"
-          onPress={() => this.props.navigation.navigate('Login')}
+          onPress={() => navigation.navigate('Login')}
         />
       </View>
     )

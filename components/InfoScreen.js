@@ -7,6 +7,8 @@ import { StyleSheet, ActivityIndicator, Text, View, ScrollView } from 'react-nat
 const InfoScreen = ({navigation}) => {
   const [data, setData] = useState([])
 
+
+
     useEffect(() => {
       factService.getAll().then(all =>
         setData(all.countries)

@@ -3,6 +3,7 @@ import {
   StyleSheet, StatusBar, ScrollView,
   View, Text, Button
 } from 'react-native';
+import firebase from 'react-native-firebase'
 import MenuButton from './MenuButton'
 import { TextInput } from 'react-native-gesture-handler';
 
@@ -11,7 +12,10 @@ const LoginScreen = ({navigation}) => {
   const [password, setPassword] = useState('')
 
   const handleLogin = () => {
-    //with Firebase
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => navigation.navigate('Home'))
   }
 
     return (

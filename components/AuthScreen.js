@@ -1,7 +1,14 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import firebase from 'react-native-firebase'
 import { View, Text, ActivityIndicator, StyleSheet } from 'react-native'
-export default class Loading extends React.Component {
-  render() {
+const AuthScreen = ({navigation}) => {
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(user => {
+      navigation.navigate(user ? 'Home' : 'Register')
+    })
+  }, [])
+
     return (
       <View style={styles.container}>
         <Text>Loading</Text>
@@ -9,7 +16,7 @@ export default class Loading extends React.Component {
       </View>
     )
   }
-}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -17,3 +24,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   }
 })
+
+export default AuthScreen

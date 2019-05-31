@@ -1,25 +1,52 @@
 import React, {useState, useEffect} from 'react';
 import {
-  StyleSheet, StatusBar, ScrollView,
+  StyleSheet, StatusBar, ScrollView, ActivityIndicator,
   View, Text, Button
 } from 'react-native';
+import firebase from 'react-native-firebase'
 import MenuButton from './MenuButton'
+import MenuItem from './MenuItem'
 
 const HomeScreen = ({navigation}) => {
   const [currentUser, setCurrentUser] = useState(null)
 
-    return (
+  const handleLogout = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => navigation.navigate('Login'))
+  }
+
+  useEffect(() => {
+    const currentUser = firebase.auth().currentUser
+    setCurrentUser(currentUser)
+  }, [])
+
+if (currentUser !== null) {
+    return ( 
       <View style={styles.container}>
       <StatusBar hidden />
-      <MenuItem text={`logged as ${currentUser}`} />
+      <MenuItem text={`logged as ${currentUser.email}`} />
         <MenuButton
           text="> SEE INFO"
           onPress={() => navigation.navigate('Info')}
         />
+              <MenuButton text="logout" onPress={handleLogout} />
       </View>
     );
+  } else {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator
+          color='greenyellow'
+          size='large'
+        />
+        <MenuItem text="LOADING" />
+      </View>
+        
+    )
   }
-
+}
 
 const styles = StyleSheet.create({
   text: {

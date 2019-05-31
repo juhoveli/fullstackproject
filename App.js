@@ -6,7 +6,7 @@ import RegisterScreen from './components/RegisterScreen'
 import AuthScreen from './components/AuthScreen'
 import React from 'react'
 import TextInput from 'react-navigation'
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import { createSwitchNavigator, createStackNavigator, createAppContainer } from "react-navigation";
 
 
 const navigationOptions = {
@@ -30,19 +30,24 @@ const navigationOptions = {
   },
 }
 
-const AppNavigator = createStackNavigator(
+const AppStack = createStackNavigator({
+  Home: {screen: HomeScreen, navigationOptions: {...navigationOptions, title: 'HOME'}},
+  Info: {screen: InfoScreen, navigationOptions: {...navigationOptions, title: 'INFO'}},
+  Detail: {screen: DetailScreen, navigationOptions: {...navigationOptions, title: 'DETAILS'}},
+})
+
+const AuthStack = createStackNavigator({
+  Login: {screen: LoginScreen, navigationOptions: {...navigationOptions, title: 'LOGIN'}},
+  Register: {screen: RegisterScreen, navigationOptions: {...navigationOptions, title: 'REGISTER'}},
+})
+
+export default createAppContainer(createSwitchNavigator(
   {
-    Auth: {screen: AuthScreen, navigationOptions: {...navigationOptions, title: 'LOADING'}},
-    Login: {screen: LoginScreen, navigationOptions: {...navigationOptions, title: 'LOGIN'}},
-    Register: {screen: RegisterScreen, navigationOptions: {...navigationOptions, title: 'Register'}},
-    Home: {screen: HomeScreen, navigationOptions: {...navigationOptions, title: 'HOME'}},
-    Info: {screen: InfoScreen, navigationOptions: {...navigationOptions, title: 'INFO'}},
-    Detail: {screen: DetailScreen, navigationOptions: {...navigationOptions, title: 'DETAILS'}},
+    AuthLoading: {screen: AuthScreen, navigationOptions: {...navigationOptions, title: 'LOADING'}},
+    App: AppStack,
+    Auth: AuthStack
   },
   {
-    initialRouteName: "Auth"
-  },
-);
-
-
-export default createAppContainer(AppNavigator);
+    initialRouteName: 'AuthLoading'
+  }
+))

@@ -31,7 +31,7 @@ if (currentUser !== null) {
           text="> SEE INFO"
           onPress={() => navigation.navigate('Info')}
         />
-              <MenuButton text="logout" onPress={handleLogout} />
+              <MenuButton text="> LOGOUT" onPress={handleLogout} />
       </View>
     );
   } else {

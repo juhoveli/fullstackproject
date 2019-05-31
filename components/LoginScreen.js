@@ -16,6 +16,8 @@ const LoginScreen = ({navigation}) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => navigation.navigate('Home'))
+
+      setEmail(''); setPassword('')
   }
 
     return (
@@ -41,10 +43,10 @@ const LoginScreen = ({navigation}) => {
        onChangeText={password => setPassword(password)}
           value={password}/>
       <MenuButton 
-        text="login" 
+        text="> LOGIN" 
         onPress={handleLogin}/>
         <MenuButton 
-        text="register" 
+        text={'> REGISTER'} 
         onPress={() => navigation.navigate('Register')}/>
       </View>
       

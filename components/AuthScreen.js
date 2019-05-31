@@ -17,7 +17,6 @@ const AuthScreen = ({navigation}) => {
           color='greenyellow'
           size='large'
         />
-        <MenuItem text="LOADING" />
       </View>
     )
   }

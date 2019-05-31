@@ -6,7 +6,7 @@ import RegisterScreen from './components/RegisterScreen'
 import AuthScreen from './components/AuthScreen'
 import React from 'react'
 import TextInput from 'react-navigation'
-import { createSwitchNavigator, createStackNavigator, createAppContainer } from "react-navigation";
+import { createSwitchNavigator, createBottomTabNavigator, createStackNavigator, createAppContainer } from "react-navigation";
 
 
 const navigationOptions = {
@@ -30,10 +30,18 @@ const navigationOptions = {
   },
 }
 
-const AppStack = createStackNavigator({
-  Home: {screen: HomeScreen, navigationOptions: {...navigationOptions, title: 'HOME'}},
+const CountryStack = createStackNavigator({
   Info: {screen: InfoScreen, navigationOptions: {...navigationOptions, title: 'INFO'}},
   Detail: {screen: DetailScreen, navigationOptions: {...navigationOptions, title: 'DETAILS'}},
+})
+
+const HomeStack = createStackNavigator({
+  Home: {screen: HomeScreen, navigationOptions: {...navigationOptions, title: 'HOME'}},
+})
+
+const AppStack = createBottomTabNavigator({
+  App: HomeStack,
+  Countries: CountryStack
 })
 
 const AuthStack = createStackNavigator({

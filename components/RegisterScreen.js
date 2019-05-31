@@ -41,6 +41,7 @@ if (loading) return (
 
     return (
       <View style={styles.container}>
+           <StatusBar hidden />
               <ErrorMessage text={errorMessage} />
         <MenuItem text="CREATE NEW ACCOUNT"/>
       <TextInput 
@@ -101,6 +102,7 @@ if (loading) return (
       flexDirection: 'row',
     },
     container: {
+      padding: 50,
       flex: 1,
       justifyContent: 'center',
       alignItems: 'stretch',

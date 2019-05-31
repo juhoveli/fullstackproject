@@ -111,6 +111,7 @@ const LoginScreen = ({navigation}) => {
       flexDirection: 'row',
     },
     container: {
+      padding: 50,
       flex: 1,
       justifyContent: 'center',
       alignItems: 'stretch',

@@ -125,3 +125,11 @@ awesome. Next up is some actual authentication.
 First before starting the actual communication with DB and user
 authentication, I finished the login screen styling and added loading 
 animation. Still to do: authentication stack screens..
+
+## Firebase
+
+After reading a lot source material I decided to do the authentication
+and possibly backend with Firebase. Firebase and React Native Firebase had
+good documentation, it took about two hours to register, set up and install
+everything so I was good to go. I didn't do any actual app logic yet, just
+setting up the Firebase so I can use it.

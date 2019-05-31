@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, SearchBar, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, StatusBar, SearchBar, Text, View, ScrollView } from 'react-native';
 import MenuItem from './MenuItem'
 
 const DetailScreen = ({navigation}) => {
@@ -7,6 +7,7 @@ const DetailScreen = ({navigation}) => {
 
     return (
       <ScrollView style={styles.scroll}>
+           <StatusBar hidden />
       <View  key={country.introduction.background} >
           <Text 
             style={styles.detail}>

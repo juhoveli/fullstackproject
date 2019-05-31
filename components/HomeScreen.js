@@ -25,7 +25,7 @@ const HomeScreen = ({navigation}) => {
 if (currentUser !== null) {
     return ( 
       <View style={styles.container}>
-      <StatusBar hidden />
+           <StatusBar hidden />
       <MenuItem text={`logged as ${currentUser.email}`} />
         <MenuButton
           text="> SEE INFO"
@@ -37,6 +37,7 @@ if (currentUser !== null) {
   } else {
     return (
       <View style={styles.container}>
+           <StatusBar hidden />
         <ActivityIndicator
           color='greenyellow'
           size='large'

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import firebase from 'react-native-firebase'
 import MenuItem from './MenuItem'
-import { View, Text, ActivityIndicator, StyleSheet } from 'react-native'
+import { View, Text, ActivityIndicator, StyleSheet, StatusBar } from 'react-native'
 const AuthScreen = ({navigation}) => {
 
   useEffect(() => {
@@ -12,6 +12,7 @@ const AuthScreen = ({navigation}) => {
 
     return (
       <View style={styles.container}>
+        <StatusBar hidden />
         <ActivityIndicator
           color='greenyellow'
           size='large'

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import MenuItem from './MenuItem'
 import { KEY } from 'react-native-dotenv'
 import factService from '../services/factService'
-import { StyleSheet, ActivityIndicator, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, ActivityIndicator, StatusBar, Text, View, ScrollView } from 'react-native';
 
 const InfoScreen = ({navigation}) => {
   const [data, setData] = useState([])
@@ -18,6 +18,7 @@ const InfoScreen = ({navigation}) => {
   if (data.length < 1) {
     return (
       <View style={styles.container}>
+           <StatusBar hidden />
         <ActivityIndicator
           color='greenyellow'
           size='large'
@@ -30,6 +31,7 @@ const InfoScreen = ({navigation}) => {
 
     return (
       <ScrollView style={styles.scroll}>
+           <StatusBar hidden />
       {Object.values(data).map(c => 
       <View  key={c.data.name} >
           <MenuItem text={`> ${c.data.name}`} 

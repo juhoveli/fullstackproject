@@ -30,7 +30,7 @@ handleSignUp = () => {
 
 if (loading) return (
   <View style={styles.container}>
-  <StatusBar hidden />
+   <StatusBar hidden />
   <ActivityIndicator
         color='greenyellow'
         size='large'

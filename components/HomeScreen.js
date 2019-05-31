@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import firebase from 'react-native-firebase'
 import MenuButton from './MenuButton'
+import {DrawerActions} from 'react-navigation'
 import MenuItem from './MenuItem'
 
 const HomeScreen = ({navigation}) => {
@@ -31,7 +32,7 @@ if (currentUser !== null) {
           text="> SEE INFO"
           onPress={() => navigation.navigate('Info')}
         />
-              <MenuButton text="> LOGOUT" onPress={handleLogout} />
+      <MenuButton text="> LOGOUT" onPress={handleLogout} />
       </View>
     );
   } else {
@@ -42,7 +43,6 @@ if (currentUser !== null) {
           color='greenyellow'
           size='large'
         />
-        <MenuItem text="LOADING" />
       </View>
         
     )

@@ -13,4 +13,4 @@
 | 30.5. | 1 | Created login screen and styling |
 | 31.5. | 4 | Setting up Firebase Authentication in the app |
 | 31.5. | 2 | Improving UX by showing loading animations and error messages |
-| 31.5. | 2 | Starting to create tab navigation |
+| 31.5. | 4 | Starting to create tab and drawer navigation |

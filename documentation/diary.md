@@ -153,3 +153,8 @@ successful login to login page unless you logout.
 
 Added loading icons so users can see when something is happening
 when they press login or register buttons. Also added error messages to the top of the screen if login or registration fails for some reason. Messages use error messages from Firebase so they are not the best possible, but still understandable.
+
+## Drawer nav
+Tried this one for 3 hours without much luck. For some reason it always 
+opened a tab and not drawer from the side. No idea why. But at least I have
+a working tab navigation, although I just have two tabs in it for now.

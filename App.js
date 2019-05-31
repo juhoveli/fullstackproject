@@ -2,6 +2,8 @@ import InfoScreen from './components/InfoScreen'
 import HomeScreen from './components/HomeScreen'
 import DetailScreen from './components/DetailScreen'
 import LoginScreen from './components/LoginScreen'
+import React from 'react'
+import TextInput from 'react-navigation'
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 
@@ -24,8 +26,7 @@ const navigationOptions = {
     fontSize: 32,
     backgroundColor: 'black'
   },
-
-};
+}
 
 const AppNavigator = createStackNavigator(
   {

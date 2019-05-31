@@ -11,3 +11,4 @@
 | 30.5. | 2 | Fixing styling and adding react-router-native |
 | 30.5. | 5 | Replaced router with React Navigation, set individual country details page |  
 | 30.5. | 1 | Created login screen and styling |
+| 31.5. | 1 | Improving styling and loading animations |

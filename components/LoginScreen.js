@@ -14,6 +14,7 @@ const LoginScreen = ({navigation}) => {
       <TextInput 
       textContentType='username'
       style={styles.textInput}
+      placeholderTextColor='darkolivegreen'
       placeholder='username'
       clearTextOnFocus={true}
       keyboardAppearance='dark'/>
@@ -22,7 +23,7 @@ const LoginScreen = ({navigation}) => {
       textContentType='password'
       style={styles.textInput}
       placeholder='password'
-      placeholderTextColor='black'
+      placeholderTextColor='darkolivegreen'
       secureTextEntry={true}
        clearTextOnFocus={true}
        keyboardAppearance='dark'/>
@@ -39,8 +40,10 @@ const LoginScreen = ({navigation}) => {
     textInput: {
       fontFamily: 'Glass_TTY_VT220',
       fontSize: 36,
-      color: 'black',
-      backgroundColor: 'greenyellow',
+      color: 'greenyellow',
+      borderWidth: 1,
+      borderStyle: 'dotted',
+      borderColor: 'greenyellow',
       padding: 10,
       margin: 5
     },
@@ -69,7 +72,7 @@ const LoginScreen = ({navigation}) => {
     container: {
       flex: 1,
       justifyContent: 'center',
-      alignItems: 'center',
+      alignItems: 'stretch',
       backgroundColor: '#000000',
     },
     scroll: {

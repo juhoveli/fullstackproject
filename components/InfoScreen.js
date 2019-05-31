@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import MenuItem from './MenuItem'
 import { KEY } from 'react-native-dotenv'
 import factService from '../services/factService'
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, ActivityIndicator, Text, View, ScrollView } from 'react-native';
 
 const InfoScreen = ({navigation}) => {
   const [data, setData] = useState([])
@@ -16,7 +16,11 @@ const InfoScreen = ({navigation}) => {
   if (data.length < 1) {
     return (
       <View style={styles.container}>
-        <MenuItem text="LOADING..." />
+        <ActivityIndicator
+          color='greenyellow'
+          size='large'
+        />
+        <MenuItem text="LOADING" />
       </View>
         
     )

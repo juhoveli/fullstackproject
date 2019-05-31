@@ -119,3 +119,9 @@ in the future.
 I really didn't do any real authentication logic yet, just sketched the login
 screen to see how it van be customized. Dark keyboard layout was something
 awesome. Next up is some actual authentication.
+
+# 31th May
+
+First before starting the actual communication with DB and user
+authentication, I finished the login screen styling and added loading 
+animation. Still to do: authentication stack screens..

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, SearchBar, Text, View, ScrollView } from 'react-native';
 import MenuItem from './MenuItem'
 
 const DetailScreen = ({navigation}) => {

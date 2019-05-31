@@ -2,6 +2,8 @@ import InfoScreen from './components/InfoScreen'
 import HomeScreen from './components/HomeScreen'
 import DetailScreen from './components/DetailScreen'
 import LoginScreen from './components/LoginScreen'
+import RegisterScreen from './components/RegisterScreen'
+import AuthScreen from './components/AuthScreen'
 import React from 'react'
 import TextInput from 'react-navigation'
 import { createStackNavigator, createAppContainer } from "react-navigation";
@@ -30,13 +32,15 @@ const navigationOptions = {
 
 const AppNavigator = createStackNavigator(
   {
+    Auth: {screen: AuthScreen, navigationOptions: {...navigationOptions, title: 'LOADING'}},
     Login: {screen: LoginScreen, navigationOptions: {...navigationOptions, title: 'LOGIN'}},
+    Register: {screen: RegisterScreen, navigationOptions: {...navigationOptions, title: 'Register'}},
     Home: {screen: HomeScreen, navigationOptions: {...navigationOptions, title: 'HOME'}},
     Info: {screen: InfoScreen, navigationOptions: {...navigationOptions, title: 'INFO'}},
     Detail: {screen: DetailScreen, navigationOptions: {...navigationOptions, title: 'DETAILS'}},
   },
   {
-    initialRouteName: "Login"
+    initialRouteName: "Auth"
   },
 );
 

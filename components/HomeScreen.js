@@ -6,10 +6,12 @@ import {
 import MenuButton from './MenuButton'
 
 const HomeScreen = ({navigation}) => {
+  const [currentUser, setCurrentUser] = useState(null)
 
     return (
       <View style={styles.container}>
       <StatusBar hidden />
+      <MenuItem text={`logged as ${currentUser}`} />
         <MenuButton
           text="> SEE INFO"
           onPress={() => navigation.navigate('Info')}

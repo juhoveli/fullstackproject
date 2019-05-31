@@ -7,18 +7,25 @@ import MenuButton from './MenuButton'
 import { TextInput } from 'react-native-gesture-handler';
 
 const LoginScreen = ({navigation}) => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const handleLogin = () => {
+    //with Firebase
+  }
 
     return (
       <View style={styles.container}>
       <StatusBar hidden />
       <TextInput 
-      textContentType='username'
+      textContentType='emailAddress'
       style={styles.textInput}
       placeholderTextColor='darkolivegreen'
-      placeholder='username'
+      placeholder='email'
       clearTextOnFocus={true}
-      keyboardAppearance='dark'/>
-      
+      keyboardAppearance='dark'
+      onChangeText={email => setEmail(email)}
+      value={email}/>
       <TextInput 
       textContentType='password'
       style={styles.textInput}
@@ -26,11 +33,17 @@ const LoginScreen = ({navigation}) => {
       placeholderTextColor='darkolivegreen'
       secureTextEntry={true}
        clearTextOnFocus={true}
-       keyboardAppearance='dark'/>
+       keyboardAppearance='dark'
+       onChangeText={password => setPassword(password)}
+          value={password}/>
       <MenuButton 
         text="login" 
-        onPress={() => navigation.navigate('Home')}/>
+        onPress={handleLogin}/>
+        <MenuButton 
+        text="register" 
+        onPress={() => navigation.navigate('Register')}/>
       </View>
+      
     );
   }
 

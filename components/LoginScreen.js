@@ -1,37 +1,59 @@
 import React, {useState, useEffect} from 'react';
 import {
-  StyleSheet, StatusBar, ScrollView,
+  StyleSheet, StatusBar, ScrollView, ActivityIndicator,
   View, Text, Button
 } from 'react-native';
 import firebase from 'react-native-firebase'
 import MenuButton from './MenuButton'
+import MenuItem from './MenuItem'
+import ErrorMessage from './ErrorMessage'
 import { TextInput } from 'react-native-gesture-handler';
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleLogin = () => {
+    setLoading(true)
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => navigation.navigate('Home'))
-
+      .catch(e => {
+        setLoading(false)
+        setErrorMessage(e.message)
+        setTimeout(() => {
+          setErrorMessage(null)
+        }, 5000)
+      })
       setEmail(''); setPassword('')
   }
+
+  if (loading) return (
+    <View style={styles.container}>
+    <StatusBar hidden />
+    <ActivityIndicator
+          color='greenyellow'
+          size='large'
+        />
+    </View>
+  )
 
     return (
       <View style={styles.container}>
       <StatusBar hidden />
+      <ErrorMessage text={errorMessage} />
       <TextInput 
-      textContentType='emailAddress'
-      style={styles.textInput}
-      placeholderTextColor='darkolivegreen'
-      placeholder='email'
-      clearTextOnFocus={true}
-      keyboardAppearance='dark'
-      onChangeText={email => setEmail(email)}
-      value={email}/>
+        textContentType='emailAddress'
+        style={styles.textInput}
+        placeholderTextColor='darkolivegreen'
+        placeholder='email'
+        clearTextOnFocus={true}
+        keyboardAppearance='dark'
+        onChangeText={email => setEmail(email)}
+        value={email}/>
       <TextInput 
       textContentType='password'
       style={styles.textInput}

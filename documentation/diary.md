@@ -142,3 +142,14 @@ Authentication works, although I still have to make register screen styling
 in line with the rest of the app, as I used a template. Also, there is still
 a back button in every screen which makes you able to navigate back when
 logged out.. Not good, but this can be avoided with different screen stacks.
+
+### Fixed the flow
+So I created two different stacks, one for logging in and registration, and
+second for the actual screens of the app. And one screen for auth loading.
+And now when they're in different stacks, you can't possibly go back from
+successful login to login page unless you logout. 
+
+### Improving UX
+
+Added loading icons so users can see when something is happening
+when they press login or register buttons. Also added error messages to the top of the screen if login or registration fails for some reason. Messages use error messages from Firebase so they are not the best possible, but still understandable.

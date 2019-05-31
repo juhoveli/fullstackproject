@@ -12,4 +12,5 @@
 | 30.5. | 5 | Replaced router with React Navigation, set individual country details page |  
 | 30.5. | 1 | Created login screen and styling |
 | 31.5. | 1 | Improving styling and loading animations |
-| 31.5. | 3 | Setting up Firebase Authentication in the app |
+| 31.5. | 4 | Setting up Firebase Authentication in the app |
+| 31.5. | 1 | Improving UX by showing loading animations and error messages |

@@ -1,18 +1,11 @@
 # Work
 ## For more detailed description see `documentation/diary.md`
-### Total hours: 30
+### Total hours: 38
 
 | date | hours | description  |
 | :----:|:-----| :-----|
-| 28.5. | 3 | Introduction to React Native and its components |
-| 28.5. | 3 | Building menu, views and navigation |
-| 29.5. | 2 | Refactoring components, buiding navigation |
-| 29.5. | 2 | Installing libraries (dotenv, axios, json-server..) |
-| 29.5. | 3 | Fetching data with axios and organizing it in the app|
-| 30.5. | 2 | Fixing styling and adding react-router-native |
-| 30.5. | 5 | Replaced router with React Navigation, set individual country details page |  
-| 30.5. | 1 | Created login screen and styling |
-| 31.5. | 4 | Setting up Firebase Authentication in the app |
-| 31.5. | 2 | Improving UX by showing loading animations and error messages |
-| 31.5. | 4 | Starting to create tab and drawer navigation |
-| 1.6. | 6 | Implementing drawer navigator menu, adding icons, refactoring |
+| 28.5. | 6 | Introduction to React Native and its components. Building menu, views and navigation |
+| 29.5. | 7 | Refactoring components, buiding navigation. Installing libraries, fetching data with axios and rendering it |
+| 30.5. | 8 | Fixing styling and adding react-router-native. Replaced it with React navigation. Set individual country page. Created login screen. |
+| 31.5. | 10 | Setting up Firebase Authentication. Improving UX with animations and error messages. Started with tab and drawer navigation |
+| 1.6. | 7 | Finishing navigation with right action in each stack, adding icons for buttons and refactoring components |

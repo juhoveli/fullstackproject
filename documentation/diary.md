@@ -1,4 +1,3 @@
-### This document contains most of the commands including errors during development process.
 
 # 28th May 2019
 ## Starting with React Native
@@ -169,3 +168,13 @@ I may have to move the drawer in its own component and style it there instead
 of just styling it when creating it in App.js. What I want to achieve
 is at least a logout button and perhaps some settings that can be managed
 from the drawer menu. 
+
+## Improvements
+
+Finally I have a working drawer menu. I also added icons instead of text 
+labels to the tab bar and most of the places where there are buttons. I only
+have one problem with the navigation - drawer menu can't yet be opened from 
+a button. This is fixable as I have finally figured out how to manage individual
+elements efficiently. I hope to get the UI/UX working as I want today, so 
+I can again put my effort on the logic of retrieving information from 
+database

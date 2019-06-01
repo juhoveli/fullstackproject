@@ -1,11 +1,13 @@
-import InfoScreen from './components/InfoScreen'
-import HomeScreen from './components/HomeScreen'
-import DetailScreen from './components/DetailScreen'
-import LoginScreen from './components/LoginScreen'
-import RegisterScreen from './components/RegisterScreen'
-import AuthScreen from './components/AuthScreen'
-import UserScreen from './components/UserScreen'
+import InfoScreen from './components/screens/InfoScreen'
+import HomeScreen from './components/screens/HomeScreen'
+import DetailScreen from './components/screens/DetailScreen'
+import LoginScreen from './components/screens/LoginScreen'
+import RegisterScreen from './components/screens/RegisterScreen'
+import AuthScreen from './components/screens/AuthScreen'
+import UserScreen from './components/screens/UserScreen'
+import CustomDrawer from './components/screens/CustomDrawer'
 import React from 'react'
+import Icon from "react-native-vector-icons/Ionicons";
 import DrawerButton from './components/DrawerButton';
 import {View, SafeAreaView, ScrollView, TouchableOpacity, Text} from 'react-native'
 import { createSwitchNavigator, createDrawerNavigator, createBottomTabNavigator, createStackNavigator, createAppContainer } from "react-navigation";
@@ -23,31 +25,25 @@ const navigationOptions = {
     fontFamily: 'Glass_TTY_VT220',
     fontSize: 32
   },
-  headerBackTitle: '<',
-  headerTintColor: 'black',
-  headerBackTitleStyle: {
-    color: 'greenyellow',
-    fontFamily: 'Glass_TTY_VT220',
-    fontSize: 32,
-    backgroundColor: 'black'
-  },
-  tabBarOptions: {
-    activeTintColor: 'greenyellow',
-    inactiveTintColor: 'darkolivegreen',
-    labelStyle: {
-      fontSize: 32,
-      fontFamily: 'Glass_TTY_VT220',
-    },
-    style: {
-      backgroundColor: 'black',
-      borderTopColor: 'greenyellow'
-    },
-  }
+  headerLeft: <Icon name="ios-menu"
+   color="greenyellow" 
+   size={40}
+   />,
+
 }
 
 const CountryStack = createStackNavigator({
   Info: {screen: InfoScreen, navigationOptions: {...navigationOptions, title: 'INFO'}},
-  Detail: {screen: DetailScreen, navigationOptions: {...navigationOptions, title: 'DETAILS'}},
+  Detail: {screen: DetailScreen, navigationOptions: {
+    ...navigationOptions, 
+    title: 'DETAILS', 
+    headerTintColor: 'greenyellow',
+    headerBackTitleStyle: {
+    color: 'greenyellow',
+    fontFamily: 'Glass_TTY_VT220',
+    fontSize: 32,
+    backgroundColor: 'black'
+  },}},
 })
 
 const HomeStack = createStackNavigator({
@@ -61,21 +57,54 @@ const UserStack = createStackNavigator({
 
 
 const AppStack = createBottomTabNavigator({
-  Home: {screen: HomeStack, navigationOptions: {...navigationOptions, title: 'HOME'}},
-  Countries: {screen: CountryStack, navigationOptions: {...navigationOptions, title: 'INFO'}},
-  User: {screen: UserStack, navigationOptions: {...navigationOptions, title: 'USER'}},
-})
+  Home: {screen: HomeStack, 
+    navigationOptions: {
+      tabBarIcon: ({tintColor}) => <Icon
+      name="ios-home"
+      color={tintColor}
+      size={40}
+    />
+    }},
+  Countries: {screen: CountryStack,    
+    navigationOptions: {
+      tabBarIcon: ({tintColor}) => <Icon
+      name="ios-search"
+      color={tintColor}
+      size={40}
+  />
+  }},
+  User: {screen: UserStack,     
+    navigationOptions: {
+    tabBarIcon: ({tintColor}) => <Icon
+    name="ios-finger-print"
+    color={tintColor}
+    size={40}
+  />
+  }},
+}, {
+  lazy: false,
+tabBarOptions: {
+  showLabel: false,
+  activeTintColor: 'greenyellow',
+  inactiveTintColor: 'darkolivegreen',
+  labelStyle: {
+    fontSize: 32,
+    fontFamily: 'Glass_TTY_VT220',
+  },
+  style: {
+    backgroundColor: 'black',
+    borderTopColor: 'greenyellow'
+  },
+}, tabBarIcon:  <Icon name="ios-add" size={30} color="#900" />
+}
+)
 
 const Drawer = createDrawerNavigator({
   Tabs: {
     screen: AppStack
   }
 }, {
-    drawerWidth: 200,
-    drawerBackgroundColor: '#222222',
-    contentOptions: {
-      activeTintColor: 'greenyellow'
-    }
+  contentComponent: CustomDrawer
 })
 
 const AuthStack = createStackNavigator({

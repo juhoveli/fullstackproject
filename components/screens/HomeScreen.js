@@ -1,22 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import {
-  StyleSheet, StatusBar, ScrollView, ActivityIndicator,
+  StyleSheet, StatusBar, ScrollView, SafeAreaView, ActivityIndicator,
   View, Text, Button
 } from 'react-native';
 import firebase from 'react-native-firebase'
-import MenuButton from './MenuButton'
+import MenuButton from '../MenuButton'
 import {DrawerActions} from 'react-navigation'
-import MenuItem from './MenuItem'
+import MenuItem from '../MenuItem'
 
 const HomeScreen = ({navigation}) => {
   const [currentUser, setCurrentUser] = useState(null)
-
-  const handleLogout = () => {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => navigation.navigate('Login'))
-  }
 
   useEffect(() => {
     const currentUser = firebase.auth().currentUser
@@ -25,15 +18,14 @@ const HomeScreen = ({navigation}) => {
 
 if (currentUser !== null) {
     return ( 
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
            <StatusBar hidden />
-      <MenuItem text={`logged as ${currentUser.email}`} />
+      <MenuItem text={`WELCOME ${currentUser.email}`} />
         <MenuButton
           text="> SEE INFO"
           onPress={() => navigation.navigate('Info')}
         />
-      <MenuButton text="> LOGOUT" onPress={handleLogout} />
-      </View>
+      </SafeAreaView>
     );
   } else {
     return (

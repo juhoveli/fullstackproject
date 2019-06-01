@@ -1,25 +1,22 @@
-import React, {useState, useEffect} from 'react';
-import {
-  StyleSheet, StatusBar, ScrollView, ActivityIndicator,
-  View, Text, Button
-} from 'react-native';
 import firebase from 'react-native-firebase'
-import MenuButton from './MenuButton'
-import MenuItem from './MenuItem'
-import ErrorMessage from './ErrorMessage'
-import { TextInput } from 'react-native-gesture-handler';
-
-const LoginScreen = ({navigation}) => {
+import React, {useState, useEffect} from 'react'
+import MenuButton from '../MenuButton'
+import MenuItem from '../MenuItem'
+import ErrorMessage from '../ErrorMessage'
+import { StackActions, NavigationActions } from 'react-navigation';
+import { StyleSheet, Text, TextInput, View, StatusBar, ActivityIndicator, Button } from 'react-native'
+const RegisterScreen = ({navigation}) => {
+  
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
+  const [errorMessage, setErrorMessage] = useState(false)
 
-  const handleLogin = () => {
-    setLoading(true)
-    firebase
+handleSignUp = () => {
+  setLoading(true)
+  firebase
       .auth()
-      .signInWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .then(() => navigation.navigate('Home'))
       .catch(e => {
         setLoading(false)
@@ -28,23 +25,25 @@ const LoginScreen = ({navigation}) => {
           setErrorMessage(null)
         }, 5000)
       })
-      setEmail(''); setPassword('')
-  }
+  setEmail(''); setPassword('')
+}
 
-  if (loading) return (
-    <View style={styles.container}>
-    <StatusBar hidden />
-    <ActivityIndicator
-          color='greenyellow'
-          size='large'
-        />
-    </View>
-  )
+if (loading) return (
+  <View style={styles.container}>
+   <StatusBar hidden />
+  <ActivityIndicator
+        color='greenyellow'
+        size='large'
+      />
+  </View>
+)
+
 
     return (
       <View style={styles.container}>
-      <StatusBar hidden />
-      <ErrorMessage text={errorMessage} />
+           <StatusBar hidden />
+              <ErrorMessage text={errorMessage} />
+        <MenuItem text="CREATE NEW ACCOUNT"/>
       <TextInput 
         textContentType='emailAddress'
         style={styles.textInput}
@@ -55,27 +54,19 @@ const LoginScreen = ({navigation}) => {
         onChangeText={email => setEmail(email)}
         value={email}/>
       <TextInput 
-      textContentType='password'
-      style={styles.textInput}
-      placeholder='password'
-      placeholderTextColor='darkolivegreen'
-      secureTextEntry={true}
-       clearTextOnFocus={true}
-       keyboardAppearance='dark'
-       onChangeText={password => setPassword(password)}
-          value={password}/>
-      <MenuButton 
-        text="> LOGIN" 
-        onPress={handleLogin}/>
-        <MenuButton 
-        text={'> REGISTER'} 
-        onPress={() => navigation.navigate('Register')}/>
+        textContentType='password'
+        style={styles.textInput}
+        placeholder='password'
+        placeholderTextColor='darkolivegreen'
+        secureTextEntry={true}
+        clearTextOnFocus={true}
+        keyboardAppearance='dark'
+        onChangeText={password => setPassword(password)}
+        value={password}/>
+      <MenuButton text="> REGISTER" onPress={this.handleSignUp} />
       </View>
-      
-    );
+    )
   }
-
-
 
   const styles = StyleSheet.create({
     textInput: {
@@ -130,4 +121,5 @@ const LoginScreen = ({navigation}) => {
     }
   });
 
-  export default LoginScreen
+
+export default RegisterScreen

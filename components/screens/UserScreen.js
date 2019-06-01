@@ -4,10 +4,8 @@ import {
   View, Text, Button
 } from 'react-native';
 import firebase from 'react-native-firebase'
-import MenuButton from './MenuButton'
-import MenuItem from './MenuItem'
-import ErrorMessage from './ErrorMessage'
-import { TextInput } from 'react-native-gesture-handler';
+import MenuButton from '../MenuButton'
+import MenuItem from '../MenuItem'
 
 const UserScreen = ({navigation}) => {
   const [currentUser, setCurrentUser] = useState(null)

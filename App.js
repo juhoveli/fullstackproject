@@ -57,7 +57,7 @@ const UserStack = createStackNavigator({
 const AppStack = createBottomTabNavigator({
   Home: HomeStack,
   Countries: CountryStack,
-  User: UserStack    
+  User: UserStack
   },
   {
   defaultNavigationOptions: ({navigation}) => ({
@@ -66,7 +66,7 @@ const AppStack = createBottomTabNavigator({
       let iconName
       if (routeName === 'Home') iconName = 'ios-home'
       if (routeName === 'Countries') iconName = 'ios-search'
-      if (routeName === 'User') iconName = 'ios-finger-print'
+      if (routeName === 'User') iconName = 'ios-bookmark'
       return (
         <Icon
           name={iconName}
@@ -98,12 +98,33 @@ const Drawer = createDrawerNavigator({
   }
 }, {
   contentComponent: CustomDrawer
-})
+},
+)
 
 const AuthStack = createStackNavigator({
-  Login: {screen: LoginScreen, navigationOptions: {...navigationOptions, title: 'LOGIN'}},
-  Register: {screen: RegisterScreen, navigationOptions: {...navigationOptions, title: 'REGISTER'}},
-})
+  Login: LoginScreen,
+  Register: RegisterScreen,
+},
+{
+defaultNavigationOptions: ({navigation}) => ({
+  title: navigation.state.routeName.toUpperCase(),
+  headerStyle: {     
+    borderBottomColor: 'greenyellow',
+    backgroundColor: 'black',
+  },
+  headerTitleStyle: {
+    color: 'greenyellow',
+    fontFamily: 'Glass_TTY_VT220',
+    fontSize: 32
+  },
+  headerTintColor: 'greenyellow',
+  headerBackTitleStyle: {
+  color: 'greenyellow',
+  fontFamily: 'Glass_TTY_VT220',
+  fontSize: 32,
+  backgroundColor: 'black'
+}
+})})
 
 export default createAppContainer(createSwitchNavigator(
   {
@@ -113,5 +134,5 @@ export default createAppContainer(createSwitchNavigator(
   },
   {
     initialRouteName: 'AuthLoading'
-  }
+  },
 ))

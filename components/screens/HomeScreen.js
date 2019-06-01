@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {
-  StyleSheet, StatusBar, ScrollView, SafeAreaView, ActivityIndicator,
-  View, Text, Button
+  StyleSheet, StatusBar, SafeAreaView, ActivityIndicator,
+  View
 } from 'react-native';
 import firebase from 'react-native-firebase'
-import MenuButton from '../MenuButton'
-import {DrawerActions} from 'react-navigation'
 import MenuItem from '../MenuItem'
 
 const HomeScreen = ({navigation}) => {
@@ -20,11 +18,8 @@ if (currentUser !== null) {
     return ( 
       <SafeAreaView style={styles.container}>
            <StatusBar hidden />
-      <MenuItem text={`WELCOME ${currentUser.email}`} />
-        <MenuButton
-          text="> SEE INFO"
-          onPress={() => navigation.navigate('Info')}
-        />
+      <MenuItem text='WELCOME' />
+      <MenuItem text={currentUser.email.substring(0, currentUser.email.lastIndexOf("@"))} />
       </SafeAreaView>
     );
   } else {

@@ -1,10 +1,9 @@
 import firebase from 'react-native-firebase'
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import MenuButton from '../MenuButton'
 import MenuItem from '../MenuItem'
 import ErrorMessage from '../ErrorMessage'
-import { StackActions, NavigationActions } from 'react-navigation';
-import { StyleSheet, Text, TextInput, View, StatusBar, ActivityIndicator, Button } from 'react-native'
+import { StyleSheet, TextInput, View, StatusBar, ActivityIndicator} from 'react-native'
 const RegisterScreen = ({navigation}) => {
   
   const [email, setEmail] = useState('')

@@ -12,8 +12,6 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { createSwitchNavigator, createDrawerNavigator, createBottomTabNavigator, createStackNavigator, createAppContainer } from "react-navigation";
 
 
-
-
 const CountryStack = createStackNavigator({
   Info: {screen: InfoScreen, 
     navigationOptions: ({navigation}) =>({
@@ -128,7 +126,8 @@ const Drawer = createDrawerNavigator({
     screen: AppStack
   }
 }, {
-  contentComponent: DrawerScreen
+  contentComponent: DrawerScreen,
+  drawerWidth: 300
 },
 )
 

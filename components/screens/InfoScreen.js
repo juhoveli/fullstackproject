@@ -1,14 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import MenuItem from '../MenuItem'
-import { KEY } from 'react-native-dotenv'
 import factService from '../../services/factService'
 import { StyleSheet, ActivityIndicator, StatusBar, Text, SafeAreaView, View, ScrollView } from 'react-native';
 
 const InfoScreen = ({navigation}) => {
   const [data, setData] = useState([])
-
-
-
+  
     useEffect(() => {
       factService.getAll().then(all =>
         setData(all.countries)
@@ -29,7 +26,9 @@ const InfoScreen = ({navigation}) => {
   }
 
     return (
-      <ScrollView style={styles.scroll}>
+      <ScrollView 
+      pagingEnabled='true'
+      style={styles.scroll}>
            <StatusBar hidden />
       {Object.values(data).map(c => 
       <SafeAreaView  key={c.data.name} >

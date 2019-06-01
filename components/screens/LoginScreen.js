@@ -1,11 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
-  StyleSheet, StatusBar, ScrollView, ActivityIndicator,
-  View, Text, Button
+  StyleSheet, StatusBar, ActivityIndicator,
+  View
 } from 'react-native';
 import firebase from 'react-native-firebase'
 import MenuButton from '../MenuButton'
-import MenuItem from '../MenuItem'
 import ErrorMessage from '../ErrorMessage'
 import { TextInput } from 'react-native-gesture-handler';
 

@@ -21,10 +21,11 @@ const DrawerScreen = ({navigation}) => {
   }
 
   if (currentUser===null) return null
+  
 
   return (
     <SafeAreaView style={styles.container} >
-      <MenuItem text={currentUser.email} />
+      <MenuItem text={currentUser.email.substring(0, currentUser.email.lastIndexOf("@"))} />
       <MenuButton text="> LOGOUT" onPress={handleLogout} />
       <Icon
     name="ios-exit"
@@ -37,6 +38,7 @@ const DrawerScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: 300,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#001100',

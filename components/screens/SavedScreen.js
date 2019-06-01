@@ -1,49 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {
-  StyleSheet, StatusBar, ScrollView, ActivityIndicator,
+  StyleSheet, StatusBar,
   View, Text, Button
 } from 'react-native';
-import firebase from 'react-native-firebase'
-import MenuButton from '../MenuButton'
 import MenuItem from '../MenuItem'
 
 const SavedScreen = ({navigation}) => {
-  const [currentUser, setCurrentUser] = useState(null)
-
-  useEffect(() => {
-    const currentUser = firebase.auth().currentUser
-    setCurrentUser(currentUser)
-  }, [])
-
-  const handleLogout = () => {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => navigation.navigate('Login'))
-  }
-
-  if (currentUser !== null) {
     return ( 
       <View style={styles.container}>
            <StatusBar hidden />
-      <MenuItem text={`logged as ${currentUser.email}`} />
-      <MenuButton text="> LOGOUT" onPress={handleLogout} />
-      <MenuButton text="> LOGOUT" onPress={() => navigation.openDrawer()} />
+      <MenuItem text='Should display saved countries etc. here' />
       </View>
     );
-  } else {
-    return (
-      <View style={styles.container}>
-           <StatusBar hidden />
-        <ActivityIndicator
-          color='greenyellow'
-          size='large'
-        />
-      </View>
-        
-    )
   }
-}
+
 
 
 

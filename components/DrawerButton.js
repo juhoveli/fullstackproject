@@ -1,11 +1,14 @@
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import Icon from "react-native-vector-icons/Ionicons";
 
 const DrawerButton = ({ navigation }) => (
 
-  <TouchableOpacity onPress={() => navigation.navigate('DrawerOpen')}>
-    <Text title="DRAW" style={{color: 'greenyellow'}} />
-  </TouchableOpacity>
+  <Icon name="ios-menu"
+      style={{paddingLeft: 20}}
+       color="greenyellow" 
+       size={40}
+       onPress={() => navigation.openDrawer()}
+       />
 );
 
 export default DrawerButton;

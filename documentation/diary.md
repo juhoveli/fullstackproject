@@ -178,3 +178,7 @@ a button. This is fixable as I have finally figured out how to manage individual
 elements efficiently. I hope to get the UI/UX working as I want today, so 
 I can again put my effort on the logic of retrieving information from 
 database
+
+After few more tries I got the drawer working. Now there is a button on every
+screen, except Auth Stack, that opens drawer. Next I need to improve drawer
+logic. Also fixed some paddings on icons and refactored components.

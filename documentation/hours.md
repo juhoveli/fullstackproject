@@ -15,4 +15,4 @@
 | 31.5. | 4 | Setting up Firebase Authentication in the app |
 | 31.5. | 2 | Improving UX by showing loading animations and error messages |
 | 31.5. | 4 | Starting to create tab and drawer navigation |
-| 1.6. | 4 | Implementing drawer navigator menu, adding icons |
+| 1.6. | 6 | Implementing drawer navigator menu, adding icons, refactoring |

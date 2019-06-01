@@ -5,7 +5,7 @@ import firebase from 'react-native-firebase'
 import Icon from "react-native-vector-icons/Ionicons";
 import {StyleSheet, SafeAreaView , Text} from "react-native";
 
-const CustomDrawer = ({navigation}) => {
+const DrawerScreen = ({navigation}) => {
   const [currentUser, setCurrentUser] = useState(null)
 
   useEffect(() => {
@@ -43,4 +43,4 @@ const styles = StyleSheet.create({
   }})
 
 
-export default CustomDrawer
+export default DrawerScreen

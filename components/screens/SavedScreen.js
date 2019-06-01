@@ -7,7 +7,7 @@ import firebase from 'react-native-firebase'
 import MenuButton from '../MenuButton'
 import MenuItem from '../MenuItem'
 
-const UserScreen = ({navigation}) => {
+const SavedScreen = ({navigation}) => {
   const [currentUser, setCurrentUser] = useState(null)
 
   useEffect(() => {
@@ -100,4 +100,4 @@ const UserScreen = ({navigation}) => {
     }
   });
 
-  export default UserScreen
+  export default SavedScreen

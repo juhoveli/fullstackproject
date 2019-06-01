@@ -4,60 +4,91 @@ import DetailScreen from './components/screens/DetailScreen'
 import LoginScreen from './components/screens/LoginScreen'
 import RegisterScreen from './components/screens/RegisterScreen'
 import AuthScreen from './components/screens/AuthScreen'
-import UserScreen from './components/screens/UserScreen'
-import CustomDrawer from './components/screens/CustomDrawer'
+import SavedScreen from './components/screens/SavedScreen'
+import DrawerScreen from './components/screens/DrawerScreen'
+import DrawerButton from './components/DrawerButton'
 import React from 'react'
 import Icon from "react-native-vector-icons/Ionicons";
-import DrawerButton from './components/DrawerButton';
-import {View, SafeAreaView, ScrollView, TouchableOpacity, Text} from 'react-native'
 import { createSwitchNavigator, createDrawerNavigator, createBottomTabNavigator, createStackNavigator, createAppContainer } from "react-navigation";
-import MenuButton from './components/MenuButton';
 
 
-const navigationOptions = {
-  title: 'placeholder',
-  headerStyle: {     
-    borderBottomColor: 'greenyellow',
-    backgroundColor: 'black',
-  },
-  headerTitleStyle: {
-    color: 'greenyellow',
-    fontFamily: 'Glass_TTY_VT220',
-    fontSize: 32
-  },
-  headerLeft: <Icon name="ios-menu"
-   color="greenyellow" 
-   size={40}
-   />,
 
-}
 
 const CountryStack = createStackNavigator({
-  Info: {screen: InfoScreen, navigationOptions: {...navigationOptions, title: 'INFO'}},
-  Detail: {screen: DetailScreen, navigationOptions: {
-    ...navigationOptions, 
-    title: 'DETAILS', 
-    headerTintColor: 'greenyellow',
-    headerBackTitleStyle: {
-    color: 'greenyellow',
-    fontFamily: 'Glass_TTY_VT220',
-    fontSize: 32,
-    backgroundColor: 'black'
-  },}},
+  Info: {screen: InfoScreen, 
+    navigationOptions: ({navigation}) =>({
+      title: navigation.state.routeName.toUpperCase(),
+      headerStyle: {     
+        borderBottomColor: 'greenyellow',
+        backgroundColor: 'black',
+      },
+      headerTitleStyle: {
+        color: 'greenyellow',
+        fontFamily: 'Glass_TTY_VT220',
+        fontSize: 32
+      },
+      headerLeft: <DrawerButton navigation={navigation}/>,
+    }) },
+  Detail: {screen: DetailScreen, 
+    navigationOptions: ({navigation}) =>({
+      title: navigation.getParam('country', 'placeholder').name.toUpperCase(),
+      headerStyle: {     
+        borderBottomColor: 'greenyellow',
+        backgroundColor: 'black',
+      },
+      headerTitleStyle: {
+        color: 'greenyellow',
+        fontFamily: 'Glass_TTY_VT220',
+        fontSize: 24
+      }, 
+      headerTintColor: 'greenyellow',
+      headerBackTitleStyle: {
+      color: 'greenyellow',
+      fontFamily: 'Glass_TTY_VT220',
+      fontSize: 24,
+      backgroundColor: 'black'
+}
+    }) },
 })
 
 const HomeStack = createStackNavigator({
-  Home: {screen: HomeScreen, navigationOptions: {...navigationOptions, title: 'HOME'}},
-})
+  Home: {screen: HomeScreen, 
+    navigationOptions: ({navigation}) =>({
+      title: navigation.state.routeName.toUpperCase(),
+      headerStyle: {     
+        borderBottomColor: 'greenyellow',
+        backgroundColor: 'black',
+      },
+      headerTitleStyle: {
+        color: 'greenyellow',
+        fontFamily: 'Glass_TTY_VT220',
+        fontSize: 32
+      },
+      headerLeft: <DrawerButton navigation={navigation}/>,
+  }) 
+}})
 
-const UserStack = createStackNavigator({
-  User: {screen: UserScreen, navigationOptions: {...navigationOptions, title: 'USER'}},
-})
+const SavedStack = createStackNavigator({
+  Saved: {screen: SavedScreen, 
+    navigationOptions: ({navigation}) =>({
+      title: navigation.state.routeName.toUpperCase(),
+      headerStyle: {     
+        borderBottomColor: 'greenyellow',
+        backgroundColor: 'black',
+      },
+      headerTitleStyle: {
+        color: 'greenyellow',
+        fontFamily: 'Glass_TTY_VT220',
+        fontSize: 32
+      },
+      headerLeft: <DrawerButton navigation={navigation}/>,
+  }) 
+}})
 
 const AppStack = createBottomTabNavigator({
   Home: HomeStack,
   Countries: CountryStack,
-  User: UserStack
+  Saved: SavedStack
   },
   {
   defaultNavigationOptions: ({navigation}) => ({
@@ -66,7 +97,7 @@ const AppStack = createBottomTabNavigator({
       let iconName
       if (routeName === 'Home') iconName = 'ios-home'
       if (routeName === 'Countries') iconName = 'ios-search'
-      if (routeName === 'User') iconName = 'ios-bookmark'
+      if (routeName === 'Saved') iconName = 'ios-bookmark'
       return (
         <Icon
           name={iconName}
@@ -97,7 +128,7 @@ const Drawer = createDrawerNavigator({
     screen: AppStack
   }
 }, {
-  contentComponent: CustomDrawer
+  contentComponent: DrawerScreen
 },
 )
 
@@ -128,7 +159,7 @@ defaultNavigationOptions: ({navigation}) => ({
 
 export default createAppContainer(createSwitchNavigator(
   {
-    AuthLoading: {screen: AuthScreen, navigationOptions: {...navigationOptions, title: 'LOADING'}},
+    AuthLoading: AuthScreen,
     App: Drawer,
     Auth: AuthStack,
   },

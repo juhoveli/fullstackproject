@@ -1,5 +1,6 @@
 # Work
 ## For more detailed description see `documentation/diary.md`
+### Total hours: 30
 
 | date | hours | description  |
 | :----:|:-----| :-----|

@@ -12,3 +12,10 @@ under construction..
 
 ## Record of work hours
 [Here](https://github.com/juhoveli/fullstackproject/blob/master/documentation/hours.md)
+
+## Todos
+- Redux
+- Paging for country list
+- Screen margins
+- Watchlist for users (Firebase DB?)
+- Ordering and filtering

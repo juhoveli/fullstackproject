@@ -30,6 +30,7 @@ const UserScreen = ({navigation}) => {
            <StatusBar hidden />
       <MenuItem text={`logged as ${currentUser.email}`} />
       <MenuButton text="> LOGOUT" onPress={handleLogout} />
+      <MenuButton text="> LOGOUT" onPress={() => navigation.openDrawer()} />
       </View>
     );
   } else {

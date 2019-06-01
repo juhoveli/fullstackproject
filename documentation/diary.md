@@ -158,3 +158,14 @@ when they press login or register buttons. Also added error messages to the top 
 Tried this one for 3 hours without much luck. For some reason it always 
 opened a tab and not drawer from the side. No idea why. But at least I have
 a working tab navigation, although I just have two tabs in it for now.
+
+# 1st June
+
+I managed to get the drawer navigation working, so now it opens on every
+screen in the app stack when swiping from the left. Still have to implement
+a button in the top nav bar where it can be opened also. Styling of the
+drawer menu is not yet in line with rest of the app, this may be a challenge.
+I may have to move the drawer in its own component and style it there instead
+of just styling it when creating it in App.js. What I want to achieve
+is at least a logout button and perhaps some settings that can be managed
+from the drawer menu. 

@@ -6,8 +6,10 @@ import RegisterScreen from './components/RegisterScreen'
 import AuthScreen from './components/AuthScreen'
 import UserScreen from './components/UserScreen'
 import React from 'react'
-import TextInput from 'react-navigation'
+import DrawerButton from './components/DrawerButton';
+import {View, SafeAreaView, ScrollView, TouchableOpacity, Text} from 'react-native'
 import { createSwitchNavigator, createDrawerNavigator, createBottomTabNavigator, createStackNavigator, createAppContainer } from "react-navigation";
+import MenuButton from './components/MenuButton';
 
 
 const navigationOptions = {
@@ -53,13 +55,27 @@ const HomeStack = createStackNavigator({
 })
 
 const UserStack = createStackNavigator({
-  User: {screen: UserScreen, navigationOptions: {...navigationOptions, title: 'USER'}}
+  User: {screen: UserScreen, navigationOptions: {...navigationOptions, title: 'USER'}},
 })
+
+
 
 const AppStack = createBottomTabNavigator({
   Home: {screen: HomeStack, navigationOptions: {...navigationOptions, title: 'HOME'}},
   Countries: {screen: CountryStack, navigationOptions: {...navigationOptions, title: 'INFO'}},
   User: {screen: UserStack, navigationOptions: {...navigationOptions, title: 'USER'}},
+})
+
+const Drawer = createDrawerNavigator({
+  Tabs: {
+    screen: AppStack
+  }
+}, {
+    drawerWidth: 200,
+    drawerBackgroundColor: '#222222',
+    contentOptions: {
+      activeTintColor: 'greenyellow'
+    }
 })
 
 const AuthStack = createStackNavigator({
@@ -70,8 +86,8 @@ const AuthStack = createStackNavigator({
 export default createAppContainer(createSwitchNavigator(
   {
     AuthLoading: {screen: AuthScreen, navigationOptions: {...navigationOptions, title: 'LOADING'}},
-    App: AppStack,
-    Auth: AuthStack
+    App: Drawer,
+    Auth: AuthStack,
   },
   {
     initialRouteName: 'AuthLoading'

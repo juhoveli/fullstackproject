@@ -54,40 +54,34 @@ const UserStack = createStackNavigator({
   User: {screen: UserScreen, navigationOptions: {...navigationOptions, title: 'USER'}},
 })
 
-
-
 const AppStack = createBottomTabNavigator({
-  Home: {screen: HomeStack, 
-    navigationOptions: {
-      tabBarIcon: ({tintColor}) => <Icon
-      name="ios-home"
-      color={tintColor}
-      size={40}
-    />
-    }},
-  Countries: {screen: CountryStack,    
-    navigationOptions: {
-      tabBarIcon: ({tintColor}) => <Icon
-      name="ios-search"
-      color={tintColor}
-      size={40}
-  />
-  }},
-  User: {screen: UserStack,     
-    navigationOptions: {
-    tabBarIcon: ({tintColor}) => <Icon
-    name="ios-finger-print"
-    color={tintColor}
-    size={40}
-  />
-  }},
-}, {
+  Home: HomeStack,
+  Countries: CountryStack,
+  User: UserStack    
+  },
+  {
+  defaultNavigationOptions: ({navigation}) => ({
+    tabBarIcon: ({tintColor}) => {
+      const {routeName} = navigation.state
+      let iconName
+      if (routeName === 'Home') iconName = 'ios-home'
+      if (routeName === 'Countries') iconName = 'ios-search'
+      if (routeName === 'User') iconName = 'ios-finger-print'
+      return (
+        <Icon
+          name={iconName}
+          color={tintColor}
+          size={40} 
+        />
+      )
+    }
+  }),
   lazy: false,
-tabBarOptions: {
-  showLabel: false,
-  activeTintColor: 'greenyellow',
-  inactiveTintColor: 'darkolivegreen',
-  labelStyle: {
+  tabBarOptions: {
+    showLabel: false,
+    activeTintColor: 'greenyellow',
+    inactiveTintColor: 'darkolivegreen',
+    labelStyle: {
     fontSize: 32,
     fontFamily: 'Glass_TTY_VT220',
   },
@@ -95,9 +89,8 @@ tabBarOptions: {
     backgroundColor: 'black',
     borderTopColor: 'greenyellow'
   },
-}, tabBarIcon:  <Icon name="ios-add" size={30} color="#900" />
-}
-)
+  }, 
+})
 
 const Drawer = createDrawerNavigator({
   Tabs: {

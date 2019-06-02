@@ -182,3 +182,19 @@ database
 After few more tries I got the drawer working. Now there is a button on every
 screen, except Auth Stack, that opens drawer. Next I need to improve drawer
 logic. Also fixed some paddings on icons and refactored components.
+
+# 2nd June
+
+## Fixing issues
+
+Encountered a really big issue when I accidentally installed AsyncStorage packet to project with yarn instead of npm that I’ve used. For some unknown reason I was not able to build the project for iOS in Xcode anymore. 
+
+I tried all I could, uninstalling packages, removing node_modules, removing caches and Xcode derived files, cleaning build folder, cloning git repository and installing it elsewhere, but all of these were without luck. 
+
+What finally helped was just restoring the whole project file from TimeMachine backup. The file was 12 hours old so that was not what I wanted to try. Now that I was able to build the app again, I pulled the files from Github to this restored repository. So finally after 3 hours of trying I was able to continue the development from just berore the point where things went sideways.
+
+What I learned from this is that I must take local snapshots on an hourly basis if I want to restore changes more easily, as resetting to last commit with Git didn’t do the trick.
+
+As I searched for solutions, I learned that when cloning a repository and installing it, react-native link may not work because it’s not able to link all dependencies to Xcode project. This is why cloning and installing didn’t work in my case. Xcode complained about missing files.
+
+So today was not a very productive day, but maybe tomorrow I can install AsyncStorage with npm.

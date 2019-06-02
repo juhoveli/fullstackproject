@@ -9,3 +9,4 @@
 | 30.5. | 8 | Fixing styling and adding react-router-native. Replaced it with React navigation. Set individual country page. Created login screen. |
 | 31.5. | 10 | Setting up Firebase Authentication. Improving UX with animations and error messages. Started with tab and drawer navigation |
 | 1.6. | 7 | Finishing navigation with right action in each stack, adding icons for buttons and refactoring components |
+| 2.6. | 4 | Fixing errors with Xcode after erronous packet install with yarn|

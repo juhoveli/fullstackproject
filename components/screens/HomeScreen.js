@@ -7,17 +7,28 @@ import firebase from 'react-native-firebase'
 import MenuItem from '../MenuItem'
 
 const HomeScreen = ({navigation}) => {
+  var countries = firebase.database().ref('metadata')
   const [currentUser, setCurrentUser] = useState(null)
+  const [date, setDate] = useState('')
 
   useEffect(() => {
     const currentUser = firebase.auth().currentUser
     setCurrentUser(currentUser)
   }, [])
 
+  useEffect(() => {
+    countries.on('value', snapshot => {
+      let date = snapshot.val();
+      let items = Object.values(date);
+      setDate({ items });
+    });
+  }, [])
+
 if (currentUser !== null) {
     return ( 
       <SafeAreaView style={styles.container}>
            <StatusBar hidden />
+           <MenuItem text={date.items}/>
       <MenuItem text='WELCOME' />
       <MenuItem text={currentUser.email.substring(0, currentUser.email.lastIndexOf("@"))} />
       </SafeAreaView>

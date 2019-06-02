@@ -198,3 +198,10 @@ What I learned from this is that I must take local snapshots on an hourly basis 
 As I searched for solutions, I learned that when cloning a repository and installing it, react-native link may not work because it’s not able to link all dependencies to Xcode project. This is why cloning and installing didn’t work in my case. Xcode complained about missing files.
 
 So today was not a very productive day, but maybe tomorrow I can install AsyncStorage with npm.
+
+## Firebase database
+
+I tried installing Firebase DB for some time, but ran into problems as described above. Only then
+I realised that Firebase Core module includes DB, so only thing I need to do is actually fetch the
+data. I tried getting few items from the DB succesfully, so I will later update whole country list
+to use Firebase realtime database.

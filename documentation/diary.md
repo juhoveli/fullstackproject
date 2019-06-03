@@ -205,3 +205,10 @@ I tried installing Firebase DB for some time, but ran into problems as described
 I realised that Firebase Core module includes DB, so only thing I need to do is actually fetch the
 data. I tried getting few items from the DB succesfully, so I will later update whole country list
 to use Firebase realtime database.
+
+# 3rd June
+
+Today I didn't have much time to do anything, but I switched to use Firebase
+DB in the country data listing (info page). It is now very easy to fetch
+say only 10 first countries, so it makes loading times shorter. Should be
+able to implement paging and filters with a little more investigation.

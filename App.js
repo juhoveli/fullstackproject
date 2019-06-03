@@ -105,7 +105,7 @@ const AppStack = createBottomTabNavigator({
       )
     }
   }),
-  lazy: false,
+  lazy: true,
   tabBarOptions: {
     showLabel: false,
     activeTintColor: 'greenyellow',

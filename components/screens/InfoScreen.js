@@ -1,16 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import MenuItem from '../MenuItem'
 import factService from '../../services/factService'
+import firebase from 'react-native-firebase'
 import { StyleSheet, ActivityIndicator, StatusBar, Text, SafeAreaView, View, ScrollView } from 'react-native';
 
 const InfoScreen = ({navigation}) => {
+  var countries = firebase.database().ref('countries').limitToFirst(10)
   const [data, setData] = useState([])
   
-    useEffect(() => {
-      factService.getAll().then(all =>
-        setData(all.countries)
-      )
-    }, [])
+  useEffect(() => {
+    countries.on('value', snapshot => {
+      let meta = snapshot.val();
+      let fromDb = Object.values(meta);
+      setData(fromDb);
+    });
+  }, [])
 
   if (data.length < 1) {
     return (
@@ -27,7 +31,6 @@ const InfoScreen = ({navigation}) => {
 
     return (
       <ScrollView 
-      pagingEnabled='true'
       style={styles.scroll}>
            <StatusBar hidden />
       {Object.values(data).map(c => 

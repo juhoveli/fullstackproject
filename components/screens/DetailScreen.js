@@ -1,19 +1,26 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, StatusBar, SearchBar, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, StatusBar, SearchBar, Text, SafeAreaView, ScrollView } from 'react-native';
 import MenuItem from '../MenuItem'
 
 const DetailScreen = ({navigation}) => {
     const country = navigation.getParam('country', 'finland')
+    console.log(country)
 
     return (
       <ScrollView style={styles.scroll}>
            <StatusBar hidden />
-      <View  key={country.introduction.background} >
-          <Text 
-            style={styles.detail}>
-            {country.introduction.background}
-          </Text>
-      </View>
+{Object.keys(country).map(c => 
+  <SafeAreaView  key={c} >
+      <Text
+                style={styles.detail} 
+                onPress={() => 
+                navigation.navigate('Detail', {
+                  country: c.data
+                })}
+        >{`> ${c}`} </Text>
+  </SafeAreaView>
+  )}
+
     </ScrollView>
     )
   }
@@ -21,11 +28,9 @@ const DetailScreen = ({navigation}) => {
   const styles = StyleSheet.create({
     detail: {
       fontFamily: 'Glass_TTY_VT220',
-      fontSize: 24,
-      textAlign: 'center',
+      fontSize: 36,
+      textAlign: 'left',
       color: 'greenyellow',
-      margin: 10,
-      padding: 10
     },
     text: {
       fontFamily: 'Glass_TTY_VT220',

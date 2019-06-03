@@ -212,3 +212,13 @@ Today I didn't have much time to do anything, but I switched to use Firebase
 DB in the country data listing (info page). It is now very easy to fetch
 say only 10 first countries, so it makes loading times shorter. Should be
 able to implement paging and filters with a little more investigation.
+
+Later I also had some problems with ordering data from DB. Queries didn't work
+well with nested data, so I had to do much console.logging to find out how
+the data is actually saved to state when DB is queried. So today has been
+mainly about figuring out how to get data shown on screen. Country listing
+is easy, but as I want to do more than that - filtering and ordering, I need
+to really be sure what to do. Also the data in the database is not the best 
+available. Not all values and keys are present in all countries, and this
+causes some problems. If I want to get countries sorted by population it
+can't be done easily because there are null values.

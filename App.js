@@ -29,7 +29,7 @@ const CountryStack = createStackNavigator({
     }) },
   Detail: {screen: DetailScreen, 
     navigationOptions: ({navigation}) =>({
-      title: navigation.getParam('country', 'placeholder').name.toUpperCase(),
+      title: navigation.getParam('country', 'placeholder').name,
       headerStyle: {     
         borderBottomColor: 'greenyellow',
         backgroundColor: 'black',

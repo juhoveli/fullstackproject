@@ -5,18 +5,17 @@ import firebase from 'react-native-firebase'
 import { StyleSheet, ActivityIndicator, StatusBar, Text, SafeAreaView, View, ScrollView } from 'react-native';
 
 const InfoScreen = ({navigation}) => {
-  var countries = firebase.database().ref('countries').limitToFirst(10)
-  const [data, setData] = useState([])
+  var countries = firebase.database().ref('countries').limitToFirst(5)
+  const [data, setData] = useState(null)
   
   useEffect(() => {
-    countries.on('value', snapshot => {
-      let meta = snapshot.val();
-      let fromDb = Object.values(meta);
-      setData(fromDb);
+    countries.once('value', snapshot => {
+      let countriesList = snapshot.val();
+      setData(countriesList);
     });
   }, [])
 
-  if (data.length < 1) {
+  if (!data  || data.length < 1) {
     return (
       <SafeAreaView style={styles.container}>
            <StatusBar hidden />

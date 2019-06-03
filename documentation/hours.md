@@ -12,3 +12,4 @@
 | 2.6. | 6 | Fixing errors with Xcode after erronous packet install with yarn. Working with Firebase
 realtime database to fetch country data|
 | 3.6 | 1 | Country listing switched to using Firebase instead of pure json data.
+| | 3 | Finding out about the Firebase data structure and different functions. |

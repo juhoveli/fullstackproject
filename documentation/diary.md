@@ -222,3 +222,11 @@ to really be sure what to do. Also the data in the database is not the best
 available. Not all values and keys are present in all countries, and this
 causes some problems. If I want to get countries sorted by population it
 can't be done easily because there are null values.
+
+$ 4th June
+
+After trial and error and a lot of console logging I was able to build country tree, 
+meaning that it's possible to navigatate deeper into country details when clicking each
+detail. Problem is that all details open in the same detail screen and stack, so going back
+returns you to all country page. All data is also not yet visible but this is a good start
+to finally be able to present all data from database in the app.

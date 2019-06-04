@@ -8,20 +8,21 @@ const DetailScreen = ({navigation}) => {
 
     return (
       <ScrollView style={styles.scroll}>
-           <StatusBar hidden />
-{Object.keys(country).map(c => 
-  <SafeAreaView  key={c} >
-      <Text
-                style={styles.detail} 
-                onPress={() => 
-                navigation.navigate('Detail', {
-                  country: c.data
-                })}
-        >{`> ${c}`} </Text>
-  </SafeAreaView>
-  )}
-
-    </ScrollView>
+        <StatusBar hidden />
+        {Object.entries(country)
+          //.filter(key => key !== "name")
+          .map(c => 
+            <SafeAreaView  key={c} >
+                <Text
+                  style={styles.detail} 
+                  onPress={() =>  navigation.navigate('Detail', {country: c[1]})}
+                >
+                  {console.log({c})}
+                  {`> ${c[0]}`} 
+                </Text>
+            </SafeAreaView>
+          )}
+      </ScrollView>
     )
   }
 

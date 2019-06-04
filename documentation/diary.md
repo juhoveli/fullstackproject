@@ -230,3 +230,21 @@ meaning that it's possible to navigatate deeper into country details when clicki
 detail. Problem is that all details open in the same detail screen and stack, so going back
 returns you to all country page. All data is also not yet visible but this is a good start
 to finally be able to present all data from database in the app.
+
+## Handling details
+
+With the current data it's proven hard to actually show every item with mapping, because
+some countries lack those fields. It would be easy if they had null values, but because
+those fields do not exists, it's harder. I can't possibly go through every child and check
+which fields it has or hasn't. So I've decided to only show selected data in the details page,
+including population, capital, area and background. Still have to see if there's something more
+I'd like to show. At least I'd have to check other databases as well, because this has proven
+to be not as optimal as I thought, sadly, but it's too late to change whole idea of the app.
+
+Also fetching data was not as easy as I thought. With some work I was able to return correct
+fields from DB, but ordering them was not possible because I didn't return the snapshot but
+other values, so the order was lost in that conversion. Then I returned snapshots, but because
+I used useEffect with useState while loading data, only the current value was actually in the
+state and concat didn't work. With additional variable I was able to solve this. Now I make
+new objects from each child that the snapshot has. Limiting works quite well, but I have not 
+yet managed to do any sorting or filtering.

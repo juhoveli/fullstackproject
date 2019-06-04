@@ -4,14 +4,23 @@ import factService from '../../services/factService'
 import firebase from 'react-native-firebase'
 import { StyleSheet, ActivityIndicator, StatusBar, Text, SafeAreaView, View, ScrollView } from 'react-native';
 
+
 const InfoScreen = ({navigation}) => {
-  var countries = firebase.database().ref('countries').limitToFirst(5)
-  const [data, setData] = useState(null)
+  var countries = firebase.database().ref('countries').limitToFirst(10)
+  const [data, setData] = useState([])
   
   useEffect(() => {
-    countries.once('value', snapshot => {
-      let countriesList = snapshot.val();
-      setData(countriesList);
+    countries.once('value', snap => {
+      const countryObjects = []
+      snap.forEach((child) => {
+        console.log(child.key, child.val())
+        countryObjects.push({
+          name: child.key,
+          data: child.val().data
+        })
+      })
+      setData(countryObjects)
+      console.log(countryObjects)
     });
   }, [])
 
@@ -32,9 +41,10 @@ const InfoScreen = ({navigation}) => {
       <ScrollView 
       style={styles.scroll}>
            <StatusBar hidden />
-      {Object.values(data).map(c => 
-      <SafeAreaView  key={c.data.name} >
-          <MenuItem text={`> ${c.data.name}`} 
+           {data.map(c => 
+           
+      <SafeAreaView  key={c.name} >
+          <MenuItem text={`> ${c.name}`} 
                     style={styles.text} 
                     onPress={() => 
                     navigation.navigate('Detail', {
@@ -91,3 +101,7 @@ const InfoScreen = ({navigation}) => {
   });
   
   export default InfoScreen
+
+  /**
+   *      
+   */

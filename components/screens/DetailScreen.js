@@ -5,23 +5,16 @@ import MenuItem from '../MenuItem'
 const DetailScreen = ({navigation}) => {
     const country = navigation.getParam('country', 'finland')
     console.log(country)
+    if (!country.government.capital) country.government.capital = {name: 'no data'}
+    if (!country.people) country.people = {population: {total: 'no data'}}
 
     return (
       <ScrollView style={styles.scroll}>
         <StatusBar hidden />
-        {Object.entries(country)
-          //.filter(key => key !== "name")
-          .map(c => 
-            <SafeAreaView  key={c} >
-                <Text
-                  style={styles.detail} 
-                  onPress={() =>  navigation.navigate('Detail', {country: c[1]})}
-                >
-                  {console.log({c})}
-                  {`> ${c[0]}`} 
-                </Text>
-            </SafeAreaView>
-          )}
+        <MenuItem text={`- capital: ${country.government.capital.name || 'none'}`} />
+        <MenuItem text={`- population: ${country.people.population.total}`} />
+        <MenuItem text={`- area: ${country.geography.area.total.value} sq km`} />
+        <MenuItem text={`> background`}/>
       </ScrollView>
     )
   }

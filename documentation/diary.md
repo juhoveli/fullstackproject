@@ -47,7 +47,7 @@ just saving the page name to state and then manipulating view based on that.
 Quite an easy task, although I now have a navigation menu that keeps moving..
 need to make it stick to the bottom of the screen.
 
-# 29th May 2019
+# 29th May
 
 ## A little bit more
 
